@@ -8,50 +8,269 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bodoni72.ttc">
+            <string>BodoniSvtyTwoITCTT-Book</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Select Team Name View Controller-->
+        <!--Presentation-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SelectTeamNameViewController" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="Presentation" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selectionner votre nom d'equipe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JR-JH-oq0">
-                                <rect key="frame" x="20" y="50" width="335" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Commencer une nouvelle partie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NS-NA-0hG">
+                                <rect key="frame" x="66" y="42" width="244" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45941632986068726" green="0.95977526903152466" blue="0.92700487375259399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.043049708549222743" green="0.020973415233421219" blue="0.01710707388826942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1R-jq-BJG">
-                                <rect key="frame" x="30" y="101" width="315" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H29-iK-fZd">
+                                <rect key="frame" x="172" y="124" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.47012555599212646" green="0.47708660364151001" blue="0.08617217093706131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="qZK-CF-Dvr" kind="show" id="Mqy-OX-Qia"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.046786211431026459" green="0.12962862849235535" blue="0.13081377744674683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-444" y="-31"/>
+        </scene>
+        <!--RedTeamName-->
+        <scene sceneID="UXf-77-iJ8">
+            <objects>
+                <viewController title="RedTeamName" id="qZK-CF-Dvr" customClass="TeamNameViewController" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BEe-Ay-8dh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="L'équipe rouge entrez votre nom d'équipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKm-Wd-13Y">
+                                <rect key="frame" x="29" y="50" width="318" height="35"/>
+                                <color key="backgroundColor" red="0.9152866005897522" green="0.24655312299728394" blue="0.20107686519622803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ly-xC-0zU">
+                                <rect key="frame" x="86" y="313" width="204" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2O-ld-7fC">
+                                <rect key="frame" x="131" y="446" width="114" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.37992143630981445" green="0.73733890056610107" blue="0.24162498116493225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Valider">
+                                    <color key="titleColor" red="0.49896448850631714" green="0.94847172498703003" blue="0.17395663261413574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Dbx-4p-sdR" kind="show" id="LxT-Cc-e2w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHm-r9-k1b">
+                                <rect key="frame" x="164" y="218" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="debugButtonPressed" destination="qZK-CF-Dvr" eventType="touchUpInside" id="Dk8-Hr-scZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nKm-Wd-13Y" firstAttribute="top" secondItem="Bg0-g9-y9n" secondAttribute="top" constant="30" id="3O2-Yh-sGI"/>
+                            <constraint firstItem="nKm-Wd-13Y" firstAttribute="leading" secondItem="Bg0-g9-y9n" secondAttribute="leading" constant="50" id="3WO-hc-l5d"/>
+                            <constraint firstItem="Bg0-g9-y9n" firstAttribute="trailing" secondItem="nKm-Wd-13Y" secondAttribute="trailing" constant="50" id="giJ-cB-vBw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bg0-g9-y9n"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="6Ly-xC-0zU" id="gkX-x5-tfe"/>
+                        <outlet property="teamSelectionTitle" destination="nKm-Wd-13Y" id="QfI-Z8-PbW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F59-bv-Jlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421.60000000000002" y="-31.03448275862069"/>
+        </scene>
+        <!--NameHero-->
+        <scene sceneID="cag-j5-mKu">
+            <objects>
+                <viewController title="NameHero" id="jmq-cG-lJV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YaO-X7-XrK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRF-Fy-Z90">
+                                <rect key="frame" x="123" y="192" width="129" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="QaZ-1z-iG1"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="rtw-bb-Fgx"/>
+                                    <constraint firstAttribute="width" constant="129" id="tSP-MK-I4F"/>
+                                    <constraint firstAttribute="height" constant="50" id="yYu-Ew-aym"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7F6-FY-lKc">
+                                <rect key="frame" x="172" y="496" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.37992143630981445" green="0.73733890056610107" blue="0.24162498116493225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="27"/>
+                                <state key="normal" title="v">
+                                    <color key="titleColor" red="0.49896448850631714" green="0.94847172498703003" blue="0.17395663261413574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Dbx-4p-sdR" kind="show" id="6Hp-GS-Iec"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Donner un nom à votre Héro" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frq-es-ubV">
+                                <rect key="frame" x="80" y="60" width="215" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96931833028793335" green="0.89740794897079468" blue="0.87458699941635132" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="6JR-JH-oq0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Myz-0v-gLg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a1R-jq-BJG" secondAttribute="trailing" constant="30" id="OGG-cE-9gc"/>
-                            <constraint firstItem="6JR-JH-oq0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="VEM-Uk-ku9"/>
-                            <constraint firstItem="a1R-jq-BJG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="nHj-An-XGf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6JR-JH-oq0" secondAttribute="trailing" constant="20" id="uRK-vb-qt7"/>
-                            <constraint firstItem="a1R-jq-BJG" firstAttribute="top" secondItem="6JR-JH-oq0" secondAttribute="bottom" constant="30" id="zRR-3V-2EY"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="ynV-fS-JB0"/>
                     </view>
-                    <connections>
-                        <outlet property="instructionLabel" destination="6JR-JH-oq0" id="NGZ-Jm-mRZ"/>
-                        <outlet property="nameTextField" destination="a1R-jq-BJG" id="ifO-NE-UeO"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNa-Tu-dXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2.3999999999999999" y="31.934032983508249"/>
+            <point key="canvasLocation" x="2463" y="-18"/>
+        </scene>
+        <!--ChoiceHero-->
+        <scene sceneID="i8T-u1-KMS">
+            <objects>
+                <viewController title="ChoiceHero" id="Dbx-4p-sdR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OMC-Hl-Dit">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S8p-7r-gWu">
+                                <rect key="frame" x="16" y="225" width="155" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">PV: 
+ATK:
+Capacité Spécial:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selectionner 3 Héros " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojq-eT-8Gg">
+                                <rect key="frame" x="105" y="40" width="166" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwn-Kr-Wvh">
+                                <rect key="frame" x="41" y="143" width="104" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83604192733764648" green="0.94178211688995361" blue="0.75791913270950317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Le nain'génieur">
+                                    <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jmq-cG-lJV" kind="show" id="uyi-Mq-Yl8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAf-Hm-g6L">
+                                <rect key="frame" x="235" y="373" width="104" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83604192733764648" green="0.94178211688995361" blue="0.75791913270950317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Le mage">
+                                    <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jmq-cG-lJV" kind="show" id="vJh-5z-ShU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFS-hq-WIm">
+                                <rect key="frame" x="41" y="373" width="104" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83604192733764648" green="0.94178211688995361" blue="0.75791913270950317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Le gladiateur">
+                                    <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jmq-cG-lJV" kind="show" id="VqR-Vk-ffh"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7zt-Ls-vRq">
+                                <rect key="frame" x="204" y="225" width="155" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">PV: 
+ATK:
+Capacité Spécial:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXz-yA-gQB">
+                                <rect key="frame" x="223" y="143" width="116" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83604192733764648" green="0.94178211688995361" blue="0.75791913270950317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Le titan de pierre">
+                                    <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jmq-cG-lJV" kind="show" id="uQ7-Za-4Zs"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BuX-fs-Agk">
+                                <rect key="frame" x="16" y="440" width="155" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">PV: 
+ATK:
+Capacité Spécial:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xZz-fC-iux">
+                                <rect key="frame" x="204" y="440" width="155" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">PV: 
+ATK:
+Capacité Spécial:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="52R-oG-3Xx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEu-dj-iU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.8" y="-32.833583208395808"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LxT-Cc-e2w"/>
+        <segue reference="vJh-5z-ShU"/>
+    </inferredMetricsTieBreakers>
 </document>
