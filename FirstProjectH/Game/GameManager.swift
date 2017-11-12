@@ -1,25 +1,25 @@
-////Creation of class Teams
-//class Team {
-//    var color : String
-//    var heros: [Hero]
-//    var name = ""
-//    var hisTurn = Bool()
-//
-//    init(color: String, heros: [Hero]){
-//        self.color = color
-//        self.heros = heros
-//    }
-//}
-//
-//func add(name: String, to team: Team) {
-//    team.name = name
-//}
-//
-//
-//func add(hero: Hero, to team: Team) {
-//    team.heros.append(hero)
-//}
-//
+//Creation of class Teams
+class Team {
+    var color : String
+    var heros: [Hero]
+    var name = ""
+    var hisTurn = Bool()
+
+    init(color: String, heros: [Hero]){
+        self.color = color
+        self.heros = heros
+    }
+}
+
+func add(name: String, to team: Team) {
+    team.name = name
+}
+
+
+func add(hero: Hero, to team: Team) {
+    team.heros.append(hero)
+}
+
 ////AJOUT fonction donnant un nom à chaque hero de chaque equipe et verifier à chaque fois si son nom n'a pas été déja donné parmi les heros allié et adverse
 //func add(name: String, to hero: Hero) {
 //    hero.name = name

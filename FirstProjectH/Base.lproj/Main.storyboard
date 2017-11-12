@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Bodoni72.ttc">
-            <string>BodoniSvtyTwoITCTT-Book</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Presentation-->
         <scene sceneID="tne-QT-ifu">
@@ -54,18 +49,11 @@
         <!--RedTeamName-->
         <scene sceneID="UXf-77-iJ8">
             <objects>
-                <viewController title="RedTeamName" id="qZK-CF-Dvr" customClass="TeamNameViewController" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="RedTeamName" id="qZK-CF-Dvr" customClass="TeamRedNameVC" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BEe-Ay-8dh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="L'équipe rouge entrez votre nom d'équipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKm-Wd-13Y">
-                                <rect key="frame" x="29" y="50" width="318" height="35"/>
-                                <color key="backgroundColor" red="0.9152866005897522" green="0.24655312299728394" blue="0.20107686519622803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ly-xC-0zU">
                                 <rect key="frame" x="86" y="313" width="204" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,17 +69,17 @@
                                     <color key="titleColor" red="0.49896448850631714" green="0.94847172498703003" blue="0.17395663261413574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Dbx-4p-sdR" kind="show" id="LxT-Cc-e2w"/>
+                                    <action selector="debugButtonPressed" destination="qZK-CF-Dvr" eventType="touchUpInside" id="FGP-Cs-bNn"/>
+                                    <segue destination="Dbx-4p-sdR" kind="show" id="BAC-zq-kby"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHm-r9-k1b">
-                                <rect key="frame" x="164" y="218" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="debugButtonPressed" destination="qZK-CF-Dvr" eventType="touchUpInside" id="Dk8-Hr-scZ"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="L'équipe rouge entrez votre nom d'équipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKm-Wd-13Y">
+                                <rect key="frame" x="29" y="35" width="318" height="35"/>
+                                <color key="backgroundColor" red="0.9152866005897522" green="0.24655312299728394" blue="0.20107686519622803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -110,59 +98,10 @@
             </objects>
             <point key="canvasLocation" x="421.60000000000002" y="-31.03448275862069"/>
         </scene>
-        <!--NameHero-->
-        <scene sceneID="cag-j5-mKu">
-            <objects>
-                <viewController title="NameHero" id="jmq-cG-lJV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YaO-X7-XrK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRF-Fy-Z90">
-                                <rect key="frame" x="123" y="192" width="129" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="rtw-bb-Fgx"/>
-                                    <constraint firstAttribute="width" constant="129" id="tSP-MK-I4F"/>
-                                    <constraint firstAttribute="height" constant="50" id="yYu-Ew-aym"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7F6-FY-lKc">
-                                <rect key="frame" x="172" y="496" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.37992143630981445" green="0.73733890056610107" blue="0.24162498116493225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="27"/>
-                                <state key="normal" title="v">
-                                    <color key="titleColor" red="0.49896448850631714" green="0.94847172498703003" blue="0.17395663261413574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Dbx-4p-sdR" kind="show" id="6Hp-GS-Iec"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Donner un nom à votre Héro" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frq-es-ubV">
-                                <rect key="frame" x="80" y="60" width="215" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96931833028793335" green="0.89740794897079468" blue="0.87458699941635132" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
-                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="ynV-fS-JB0"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KNa-Tu-dXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2463" y="-18"/>
-        </scene>
-        <!--ChoiceHero-->
+        <!--Choice and name hero-->
         <scene sceneID="i8T-u1-KMS">
             <objects>
-                <viewController title="ChoiceHero" id="Dbx-4p-sdR" sceneMemberID="viewController">
+                <viewController title="Choice and name hero" id="Dbx-4p-sdR" customClass="NameHeroVC" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMC-Hl-Dit">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -185,17 +124,6 @@ Capacité Spécial:</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwn-Kr-Wvh">
-                                <rect key="frame" x="41" y="143" width="104" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.83604192733764648" green="0.94178211688995361" blue="0.75791913270950317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Le nain'génieur">
-                                    <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="jmq-cG-lJV" kind="show" id="uyi-Mq-Yl8"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAf-Hm-g6L">
                                 <rect key="frame" x="235" y="373" width="104" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -204,7 +132,7 @@ Capacité Spécial:</string>
                                     <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jmq-cG-lJV" kind="show" id="vJh-5z-ShU"/>
+                                    <action selector="touchMagnus:" destination="Dbx-4p-sdR" eventType="touchUpInside" id="pOc-J4-MRi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFS-hq-WIm">
@@ -215,7 +143,7 @@ Capacité Spécial:</string>
                                     <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jmq-cG-lJV" kind="show" id="VqR-Vk-ffh"/>
+                                    <action selector="touchWarrior:" destination="Dbx-4p-sdR" eventType="touchUpInside" id="Res-NG-J5k"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7zt-Ls-vRq">
@@ -236,7 +164,7 @@ Capacité Spécial:</string>
                                     <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jmq-cG-lJV" kind="show" id="uQ7-Za-4Zs"/>
+                                    <action selector="touchColossus:" destination="Dbx-4p-sdR" eventType="touchUpInside" id="RMN-Rk-wRN"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BuX-fs-Agk">
@@ -259,6 +187,17 @@ Capacité Spécial:</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwn-Kr-Wvh">
+                                <rect key="frame" x="41" y="143" width="104" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83604192733764648" green="0.94178211688995361" blue="0.75791913270950317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Le nain'génieur">
+                                    <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchDwarf:" destination="Dbx-4p-sdR" eventType="touchUpInside" id="B17-ux-U8w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="52R-oG-3Xx"/>
@@ -269,8 +208,4 @@ Capacité Spécial:</string>
             <point key="canvasLocation" x="1336.8" y="-32.833583208395808"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="LxT-Cc-e2w"/>
-        <segue reference="vJh-5z-ShU"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -8,15 +8,15 @@
 
 import UIKit
 
-class TeamNameViewController: UIViewController {
-
+class TeamRedNameVC: UIViewController {
     @IBOutlet weak var teamSelectionTitle: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     
     
     @IBAction func debugButtonPressed() {
-        print(nameTextField.text)
+        print(nameTextField.text!)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

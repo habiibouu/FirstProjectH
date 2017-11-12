@@ -8,25 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		9868366D1FB354D800ECBDC2 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868366B1FB354D700ECBDC2 /* Presentation.swift */; };
-		9868366E1FB354D800ECBDC2 /* RedTeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868366C1FB354D800ECBDC2 /* RedTeamName.swift */; };
-		986836701FB355E800ECBDC2 /* TeamNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868366F1FB355E800ECBDC2 /* TeamNameViewController.swift */; };
+		986836701FB355E800ECBDC2 /* TeamRedNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868366F1FB355E800ECBDC2 /* TeamRedNameVC.swift */; };
 		98D3C10E1FB058A3006C6D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C10D1FB058A3006C6D4A /* AppDelegate.swift */; };
-		98D3C1101FB058A3006C6D4A /* SelectTeamNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C10F1FB058A3006C6D4A /* SelectTeamNameViewController.swift */; };
 		98D3C1131FB058A3006C6D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98D3C1111FB058A3006C6D4A /* Main.storyboard */; };
 		98D3C1151FB058A3006C6D4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98D3C1141FB058A3006C6D4A /* Assets.xcassets */; };
 		98D3C1181FB058A3006C6D4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98D3C1161FB058A3006C6D4A /* LaunchScreen.storyboard */; };
 		98D3C1231FB05941006C6D4A /* ClassGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1201FB05941006C6D4A /* ClassGame.swift */; };
 		98D3C1241FB05941006C6D4A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1211FB05941006C6D4A /* GameManager.swift */; };
 		98D3C1251FB05941006C6D4A /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1221FB05941006C6D4A /* HeroClass.swift */; };
+		ED0FED9D1FB89D9E00CA8228 /* NameHeroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FED9C1FB89D9E00CA8228 /* NameHeroVC.swift */; };
+		ED0FED9F1FB8A1C600CA8228 /* ChoiceHeroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FED9E1FB8A1C600CA8228 /* ChoiceHeroVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9868366B1FB354D700ECBDC2 /* Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
-		9868366C1FB354D800ECBDC2 /* RedTeamName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedTeamName.swift; sourceTree = "<group>"; };
-		9868366F1FB355E800ECBDC2 /* TeamNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNameViewController.swift; sourceTree = "<group>"; };
+		9868366F1FB355E800ECBDC2 /* TeamRedNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRedNameVC.swift; sourceTree = "<group>"; };
 		98D3C10A1FB058A2006C6D4A /* FirstProjectH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstProjectH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D3C10D1FB058A3006C6D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		98D3C10F1FB058A3006C6D4A /* SelectTeamNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamNameViewController.swift; sourceTree = "<group>"; };
 		98D3C1121FB058A3006C6D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98D3C1141FB058A3006C6D4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98D3C1171FB058A3006C6D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +32,8 @@
 		98D3C1201FB05941006C6D4A /* ClassGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassGame.swift; sourceTree = "<group>"; };
 		98D3C1211FB05941006C6D4A /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		98D3C1221FB05941006C6D4A /* HeroClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroClass.swift; sourceTree = "<group>"; };
+		ED0FED9C1FB89D9E00CA8228 /* NameHeroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameHeroVC.swift; sourceTree = "<group>"; };
+		ED0FED9E1FB8A1C600CA8228 /* ChoiceHeroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceHeroVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +66,13 @@
 		98D3C10C1FB058A2006C6D4A /* FirstProjectH */ = {
 			isa = PBXGroup;
 			children = (
-				98D3C1261FB05946006C6D4A /* Game */,
 				98D3C10D1FB058A3006C6D4A /* AppDelegate.swift */,
-				98D3C10F1FB058A3006C6D4A /* SelectTeamNameViewController.swift */,
-				98D3C1111FB058A3006C6D4A /* Main.storyboard */,
 				98D3C1141FB058A3006C6D4A /* Assets.xcassets */,
 				98D3C1161FB058A3006C6D4A /* LaunchScreen.storyboard */,
 				98D3C1191FB058A3006C6D4A /* Info.plist */,
-				9868366F1FB355E800ECBDC2 /* TeamNameViewController.swift */,
+				98D3C1111FB058A3006C6D4A /* Main.storyboard */,
+				98D3C1261FB05946006C6D4A /* Game */,
+				ED3B20FA1FB5CD32006BDBB9 /* ViewController */,
 			);
 			path = FirstProjectH;
 			sourceTree = "<group>";
@@ -84,10 +83,19 @@
 				98D3C1201FB05941006C6D4A /* ClassGame.swift */,
 				98D3C1211FB05941006C6D4A /* GameManager.swift */,
 				98D3C1221FB05941006C6D4A /* HeroClass.swift */,
-				9868366B1FB354D700ECBDC2 /* Presentation.swift */,
-				9868366C1FB354D800ECBDC2 /* RedTeamName.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		ED3B20FA1FB5CD32006BDBB9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9868366B1FB354D700ECBDC2 /* Presentation.swift */,
+				9868366F1FB355E800ECBDC2 /* TeamRedNameVC.swift */,
+				ED0FED9E1FB8A1C600CA8228 /* ChoiceHeroVC.swift */,
+				ED0FED9C1FB89D9E00CA8228 /* NameHeroVC.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,14 +170,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9868366E1FB354D800ECBDC2 /* RedTeamName.swift in Sources */,
 				98D3C1231FB05941006C6D4A /* ClassGame.swift in Sources */,
 				9868366D1FB354D800ECBDC2 /* Presentation.swift in Sources */,
 				98D3C1251FB05941006C6D4A /* HeroClass.swift in Sources */,
+				ED0FED9D1FB89D9E00CA8228 /* NameHeroVC.swift in Sources */,
 				98D3C1241FB05941006C6D4A /* GameManager.swift in Sources */,
-				98D3C1101FB058A3006C6D4A /* SelectTeamNameViewController.swift in Sources */,
-				986836701FB355E800ECBDC2 /* TeamNameViewController.swift in Sources */,
+				986836701FB355E800ECBDC2 /* TeamRedNameVC.swift in Sources */,
 				98D3C10E1FB058A3006C6D4A /* AppDelegate.swift in Sources */,
+				ED0FED9F1FB8A1C600CA8228 /* ChoiceHeroVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
