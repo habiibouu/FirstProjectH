@@ -16,8 +16,7 @@
 		98D3C1231FB05941006C6D4A /* ClassGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1201FB05941006C6D4A /* ClassGame.swift */; };
 		98D3C1241FB05941006C6D4A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1211FB05941006C6D4A /* GameManager.swift */; };
 		98D3C1251FB05941006C6D4A /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1221FB05941006C6D4A /* HeroClass.swift */; };
-		ED0FED9D1FB89D9E00CA8228 /* NameHeroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FED9C1FB89D9E00CA8228 /* NameHeroVC.swift */; };
-		ED0FED9F1FB8A1C600CA8228 /* ChoiceHeroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FED9E1FB8A1C600CA8228 /* ChoiceHeroVC.swift */; };
+		ED0FED9D1FB89D9E00CA8228 /* NameHeroRedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FED9C1FB89D9E00CA8228 /* NameHeroRedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +31,7 @@
 		98D3C1201FB05941006C6D4A /* ClassGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassGame.swift; sourceTree = "<group>"; };
 		98D3C1211FB05941006C6D4A /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		98D3C1221FB05941006C6D4A /* HeroClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroClass.swift; sourceTree = "<group>"; };
-		ED0FED9C1FB89D9E00CA8228 /* NameHeroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameHeroVC.swift; sourceTree = "<group>"; };
-		ED0FED9E1FB8A1C600CA8228 /* ChoiceHeroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceHeroVC.swift; sourceTree = "<group>"; };
+		ED0FED9C1FB89D9E00CA8228 /* NameHeroRedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameHeroRedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +90,7 @@
 			children = (
 				9868366B1FB354D700ECBDC2 /* Presentation.swift */,
 				9868366F1FB355E800ECBDC2 /* TeamRedNameVC.swift */,
-				ED0FED9E1FB8A1C600CA8228 /* ChoiceHeroVC.swift */,
-				ED0FED9C1FB89D9E00CA8228 /* NameHeroVC.swift */,
+				ED0FED9C1FB89D9E00CA8228 /* NameHeroRedVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -173,11 +170,10 @@
 				98D3C1231FB05941006C6D4A /* ClassGame.swift in Sources */,
 				9868366D1FB354D800ECBDC2 /* Presentation.swift in Sources */,
 				98D3C1251FB05941006C6D4A /* HeroClass.swift in Sources */,
-				ED0FED9D1FB89D9E00CA8228 /* NameHeroVC.swift in Sources */,
+				ED0FED9D1FB89D9E00CA8228 /* NameHeroRedVC.swift in Sources */,
 				98D3C1241FB05941006C6D4A /* GameManager.swift in Sources */,
 				986836701FB355E800ECBDC2 /* TeamRedNameVC.swift in Sources */,
 				98D3C10E1FB058A3006C6D4A /* AppDelegate.swift in Sources */,
-				ED0FED9F1FB8A1C600CA8228 /* ChoiceHeroVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

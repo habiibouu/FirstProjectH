@@ -1,13 +1,17 @@
 //Creation of class Teams
+enum Color {
+    case red
+    case blue
+}
 class Team {
-    var color : String
     var heros: [Hero]
     var name = ""
     var hisTurn = Bool()
-
-    init(color: String, heros: [Hero]){
-        self.color = color
+    var color: Color
+    init(heros: [Hero], color: Color){
         self.heros = heros
+        self.color = color
+       
     }
 }
 
@@ -15,31 +19,18 @@ func add(name: String, to team: Team) {
     team.name = name
 }
 
-
 func add(hero: Hero, to team: Team) {
     team.heros.append(hero)
 }
 
-////AJOUT fonction donnant un nom à chaque hero de chaque equipe et verifier à chaque fois si son nom n'a pas été déja donné parmi les heros allié et adverse
-//func add(name: String, to hero: Hero) {
-//    hero.name = name
-//}
-//
-//
-//let firstTeam = Team(color: "Red", heros: []) // je créer mes equipes rouge et bleu
-//let secondTeam = Team(color: "Blue", heros: [])
-//
-//add(name: "First",to: firstTeam) //le joueur donne un nom
-//add(name: "Team",to: secondTeam) // le joueur donne un nom
-//
-//add(hero: Dwarf(), to: firstTeam) //j'ajoute 3 hero à mon equipe
-//add(hero: Dwarf(), to: firstTeam) //j'ajoute 3 hero à mon equipe
-//add(hero: Dwarf(), to: firstTeam) //j'ajoute 3 hero à mon equipe
-//
-//add(hero: Colossus(), to: secondTeam) //j'ajoute 3 hero à mon equipe
-//add(hero: Colossus(), to: secondTeam) //j'ajoute 3 hero à mon equipe
-//add(hero: Colossus(), to: secondTeam) //j'ajoute 3 hero à mon equipe
-//
+//AJOUT fonction donnant un nom à chaque hero de chaque equipe et verifier à chaque fois si son nom n'a pas été déja donné parmi les heros allié et adverse
+func add(name: String, to hero: Hero) {
+    hero.name = name
+}
+
+
+
+
 //
 ////***Listage pour chaque équipe du détail des Hero adverse pour un choix d’action informé (sur leurs pv )
 //func detailPlayer(teamBlue: Team, teamRed: Team){

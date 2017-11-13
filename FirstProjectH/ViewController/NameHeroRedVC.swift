@@ -8,22 +8,9 @@
 
 import UIKit
 
-class NameHeroVC: UIViewController {
-    @IBAction func touchDwarf(_ sender: Any) {
-        alert()
-    }
-    @IBAction func touchColossus(_ sender: Any) {
-        alert()
-    }
-    @IBAction func touchWarrior(_ sender: Any) {
-        alert()
-    }
-    @IBAction func touchMagnus(_ sender: Any) {
-        alert()
-    }
-    
-    
-    func alert(){
+class NameHeroRedVC: UIViewController {
+    func alert() -> String{
+        var name: String
         //1. Create the alert controller.
         let alert = UIAlertController(title: "Choix du nom du hero", message: "Entrer le nom", preferredStyle: .alert)
         //2. Add the text field. You can configure it however you need.
@@ -35,12 +22,52 @@ class NameHeroVC: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
             print("Text field: \(String(describing: textField.text))")
+            self.nameHero = textField.text!
+            name = textField.text!
         }))
         
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
         
+        return name
     }
+    
+    
+    var nameHero = ""
+    var heros = [Hero]()
+    var hero = Hero(vitalPoint: 0, attack: 0, specialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
+    
+    
+    
+    @IBAction func touchDwarf(_ sender: Any) {
+        let heroDwarf: Dwarf// Probleme: Changer la class Dwarf en variable  d'instance de Hero
+        hero = heroDwarf
+        hero.name = alert()
+        heros.append(hero)
+       
+    }
+    @IBAction func touchColossus(_ sender: Any) {
+        let heroColossus: Colossus
+        hero = heroColossus
+        hero.name = alert()
+        heros.append(hero)
+    }
+    @IBAction func touchWarrior(_ sender: Any) {
+        let heroWarrior: Warrior
+        hero = heroWarrior
+        hero.name = alert()
+        heros.append(hero)
+        
+    }
+    @IBAction func touchMagnus(_ sender: Any) {
+        let heroMagnus: Magus
+        hero = heroMagnus
+        hero.name = alert()
+        heros.append(hero)
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
