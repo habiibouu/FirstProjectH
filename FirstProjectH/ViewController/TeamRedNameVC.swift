@@ -11,7 +11,6 @@ import UIKit
 class TeamRedNameVC: UIViewController {
     @IBOutlet weak var teamSelectionTitle: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
-    var Hero 
     
     @IBAction func debugButtonPressed() {
         print(nameTextField.text!)
