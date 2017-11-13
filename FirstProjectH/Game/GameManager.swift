@@ -1,19 +1,12 @@
 //Creation of class Teams
-enum Color {
-    case red
-    case blue
+
+
+enum TeamTurn {
+    case redTurn
+    case blueTurn
 }
-class Team {
-    var heros: [Hero]
-    var name = ""
-    var hisTurn = Bool()
-    var color: Color
-    init(heros: [Hero], color: Color){
-        self.heros = heros
-        self.color = color
-       
-    }
-}
+
+
 
 func add(name: String, to team: Team) {
     team.name = name

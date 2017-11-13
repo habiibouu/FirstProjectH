@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,8 +69,7 @@
                                     <color key="titleColor" red="0.49896448850631714" green="0.94847172498703003" blue="0.17395663261413574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="debugButtonPressed" destination="qZK-CF-Dvr" eventType="touchUpInside" id="FGP-Cs-bNn"/>
-                                    <segue destination="Dbx-4p-sdR" kind="show" id="BAC-zq-kby"/>
+                                    <action selector="nameTeam" destination="qZK-CF-Dvr" eventType="touchUpInside" id="UiJ-IC-J2e"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="L'équipe rouge entrez votre nom d'équipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKm-Wd-13Y">
@@ -92,6 +91,7 @@
                     <connections>
                         <outlet property="nameTextField" destination="6Ly-xC-0zU" id="gkX-x5-tfe"/>
                         <outlet property="teamSelectionTitle" destination="nKm-Wd-13Y" id="QfI-Z8-PbW"/>
+                        <segue destination="Dbx-4p-sdR" kind="show" identifier="showHerosSelection" id="mcC-jZ-oy7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F59-bv-Jlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,7 +101,7 @@
         <!--Choice and name hero-->
         <scene sceneID="i8T-u1-KMS">
             <objects>
-                <viewController title="Choice and name hero" id="Dbx-4p-sdR" customClass="NameHeroVC" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Choice and name hero" id="Dbx-4p-sdR" customClass="NameHeroRedVC" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMC-Hl-Dit">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,7 +195,7 @@ Capacité Spécial:</string>
                                     <color key="titleColor" red="1" green="0.469887675" blue="0.4036440093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchDwarf:" destination="Dbx-4p-sdR" eventType="touchUpInside" id="B17-ux-U8w"/>
+                                    <action selector="touchDwarf:" destination="Dbx-4p-sdR" eventType="touchUpInside" id="9W9-yQ-Ip0"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -8,7 +8,10 @@
 
 import Foundation
 
-var redTeam: Team
+class GameConstants {
+    static var redTeam = Team(heros: [], color: .red)
+    static var blueTeam = Team(heros: [], color: .blue)
+}
 
 
 

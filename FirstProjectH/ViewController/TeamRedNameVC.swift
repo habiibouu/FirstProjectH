@@ -9,14 +9,31 @@
 import UIKit
 
 class TeamRedNameVC: UIViewController {
+    
+    
+    var turn: TeamTurn = .redTurn
+    
     @IBOutlet weak var teamSelectionTitle: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
-    var Hero 
+    //var Hero 
     
-    @IBAction func debugButtonPressed() {
-        print(nameTextField.text!)
+    @IBAction func nameTeam() {
+        if turn == .redTurn {
+            print(nameTextField.text!)
+            GameConstants.redTeam.name = nameTextField.text!
+            changeTurn()
+        } else {
+            GameConstants.blueTeam.name = nameTextField.text!
+            //passer au prochain tour
+            self.performSegue(withIdentifier: "showHerosSelection", sender: self)
+        }
     }
     
+    func changeTurn() {
+        turn = .blueTurn
+        teamSelectionTitle.text = "Equipe bleue, c'est à vous"
+        teamSelectionTitle.backgroundColor = UIColor.blue
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
