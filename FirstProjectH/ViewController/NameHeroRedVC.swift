@@ -10,43 +10,91 @@ import UIKit
 
 class NameHeroRedVC: UIViewController {
     
+    @IBOutlet weak var heroChoice: UILabel!
     var nameHero = ""
     var heros = [Hero]()
-    var hero = Hero(vitalPoint: 0, attack: 0, specialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
+    var cpt = 0
+    var turn: TeamTurn = .redTurn
     
     @IBAction func touchDwarf(_ sender: Any) {
         alert { (name) in
             let heroDwarf = Dwarf()
             heroDwarf.name = name
             self.heros.append(heroDwarf)
+            //demander si le joueur choisi plusieur Dwarf nous auron plusieurs variable heroDwarf est ce que cela possera un pb?
         }
+        verificationNumbHero()
     }
     
-//    @IBAction func touchColossus(_ sender: Any) {
-//        let heroColossus: Colossus
-//        hero = heroColossus
-//        alert { (name) in
-//            self.hero.name = name
-//        }
-//        self.heros.append(hero)
-//    }
-//    @IBAction func touchWarrior(_ sender: Any) {
-//        let heroWarrior: Warrior
-//        hero = heroWarrior
-//        alert { (name) in
-//            self.hero.name = name
-//        }
-//        heros.append(hero)
+    
+    @IBAction func touchColossus(_ sender: Any) {
+        alert { (name) in
+            let heroColossus = Colossus()
+            heroColossus.name = name
+            self.heros.append(heroColossus)
+        }
+        verificationNumbHero()
+    }
+        
+    @IBAction func touchWarrior(_ sender: Any) {
+        alert { (name) in
+            let heroWarrior = Warrior()
+            heroWarrior.name = name
+            self.heros.append(heroWarrior)
+            
+        }
+        verificationNumbHero()
+    }
+    
+    @IBAction func touchMagus(_ sender: Any) {
+        alert { (name) in
+            let heroMagus = Magus()
+            heroMagus.name = name
+            self.heros.append(heroMagus)
+        }
+       
+    }
+    
+    func verificationNumbHero(){
+        if turn == .redTurn && heros.count <= 3 {
+            GameConstants.redTeam.heros = heros
+        }
+        if turn == .redTurn && heros.count == 3{
+            changeTeam()
+        }
+        if turn == .blueTurn && heros.count <= 3 {
+             GameConstants.blueTeam.heros = heros
+        }
+        if turn == .blueTurn && heros.count == 3 {
+             self.performSegue(withIdentifier: "showBeginParty", sender: self)
+        }
+        
+        
+//        cpt += 1
 //
-//    }
-//    @IBAction func touchMagnus(_ sender: Any) {
-//        let heroMagnus: Magus
-//        hero = heroMagnus
-//        alert { (name) in
-//            self.hero.name = name
+//        if cpt == 3{
+//            changeTeam()
+//            }
+//
+//        if cpt <= 3{
+//            GameConstants.redTeam.heros = heros
 //        }
-//        heros.append(hero)
-//    }
+//        else if cpt > 3 || cpt <= 6 {
+//            GameConstants.blueTeam.heros = heros
+//        }
+//
+//        if cpt == 6 {
+//            self.performSegue(withIdentifier: "showBeginParty", sender: self)
+//        }
+    }
+    
+    func changeTeam(){
+    heroChoice.text = "L'équipe Bleu selectionnez vos 3 Héros"
+        heroChoice.backgroundColor = UIColor.blue
+        let heros2 = [Hero]() //Je voulais vider le heros
+        heros = heros2
+        turn = .blueTurn
+    }
     
     func alert(completion: @escaping(String)->())  {
         
@@ -61,9 +109,9 @@ class NameHeroRedVC: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
             print("Text field: \(String(describing: textField.text))")
-            self.nameHero = textField.text!
             //name = textField.text!
             completion(textField.text!)
+            self.verificationNumbHero()
         }))
         
         // 4. Present the alert.
@@ -74,6 +122,8 @@ class NameHeroRedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        heroChoice.text = "L'équipe Rouge selectionnez vos 3 Héros"
+        heroChoice.backgroundColor = UIColor.red
         
         
         // Do any additional setup after loading the view.

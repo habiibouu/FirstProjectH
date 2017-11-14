@@ -29,7 +29,9 @@ class TeamRedNameVC: UIViewController {
     }
     
     func changeTurn() {
+        nameTextField.text = ""
         turn = .blueTurn
+        
         teamSelectionTitle.text = "Equipe bleue, c'est à vous"
         teamSelectionTitle.backgroundColor = UIColor.blue
     }
