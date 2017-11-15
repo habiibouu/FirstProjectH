@@ -11,7 +11,6 @@ import UIKit
 class NameHeroRedVC: UIViewController {
     
     @IBOutlet weak var heroChoice: UILabel!
-    var nameHero = ""
     var heros = [Hero]()
     var cpt = 0
     var turn: TeamTurn = .redTurn
@@ -25,7 +24,6 @@ class NameHeroRedVC: UIViewController {
         }
         verificationNumbHero()
     }
-    
     
     @IBAction func touchColossus(_ sender: Any) {
         alert { (name) in
@@ -52,47 +50,24 @@ class NameHeroRedVC: UIViewController {
             heroMagus.name = name
             self.heros.append(heroMagus)
         }
-       
     }
     
     func verificationNumbHero(){
-        if turn == .redTurn && heros.count <= 3 {
+        
+        if turn == .redTurn && heros.count == 3 {
             GameConstants.redTeam.heros = heros
-        }
-        if turn == .redTurn && heros.count == 3{
             changeTeam()
         }
-        if turn == .blueTurn && heros.count <= 3 {
-             GameConstants.blueTeam.heros = heros
-        }
         if turn == .blueTurn && heros.count == 3 {
-             self.performSegue(withIdentifier: "showBeginParty", sender: self)
+            GameConstants.blueTeam.heros = heros
+            self.performSegue(withIdentifier: "showBeginParty", sender: self)
         }
-        
-        
-//        cpt += 1
-//
-//        if cpt == 3{
-//            changeTeam()
-//            }
-//
-//        if cpt <= 3{
-//            GameConstants.redTeam.heros = heros
-//        }
-//        else if cpt > 3 || cpt <= 6 {
-//            GameConstants.blueTeam.heros = heros
-//        }
-//
-//        if cpt == 6 {
-//            self.performSegue(withIdentifier: "showBeginParty", sender: self)
-//        }
     }
     
     func changeTeam(){
-    heroChoice.text = "L'équipe Bleu selectionnez vos 3 Héros"
+        heroChoice.text = "L'équipe Bleu selectionnez vos 3 Héros"
         heroChoice.backgroundColor = UIColor.blue
-        let heros2 = [Hero]() //Je voulais vider le heros
-        heros = heros2
+        heros = []
         turn = .blueTurn
     }
     
@@ -124,8 +99,6 @@ class NameHeroRedVC: UIViewController {
         super.viewDidLoad()
         heroChoice.text = "L'équipe Rouge selectionnez vos 3 Héros"
         heroChoice.backgroundColor = UIColor.red
-        
-        
         // Do any additional setup after loading the view.
     }
     
