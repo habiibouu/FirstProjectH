@@ -10,26 +10,35 @@ import UIKit
 
 class BeginPartyVC: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    //RED TEAM
+    @IBOutlet weak var redTeamView: UIView!
+    @IBOutlet weak var RedFirstHeroName: UILabel!
+    @IBOutlet weak var RedFirstHeroPV: UILabel!
+    @IBOutlet weak var RedSecondHeroName: UILabel!
+    @IBOutlet weak var RedSecondHeroPV: UILabel!
+    @IBOutlet weak var RedThirdHeroName: UILabel!
+    @IBOutlet weak var RedThirdHeroPV: UILabel!
+    
+    
+    
+    @IBAction func redTeamButtonPressed(_ sender: UIButton) {
+        print("redButtonPressed")
+        redTeamView.isUserInteractionEnabled = false
+        redTeamView.alpha = 0.3
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
+
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
 }
