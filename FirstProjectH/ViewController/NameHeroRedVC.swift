@@ -69,23 +69,6 @@ class NameHeroRedVC: UIViewController {
              self.performSegue(withIdentifier: "showBeginParty", sender: self)
         }
         
-        
-//        cpt += 1
-//
-//        if cpt == 3{
-//            changeTeam()
-//            }
-//
-//        if cpt <= 3{
-//            GameConstants.redTeam.heros = heros
-//        }
-//        else if cpt > 3 || cpt <= 6 {
-//            GameConstants.blueTeam.heros = heros
-//        }
-//
-//        if cpt == 6 {
-//            self.performSegue(withIdentifier: "showBeginParty", sender: self)
-//        }
     }
     
     func changeTeam(){
