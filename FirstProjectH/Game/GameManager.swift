@@ -6,6 +6,11 @@ enum TeamTurn {
     case blueTurn
 }
 
+enum ActionTurn {
+    case selectHero
+    case selectAction
+    case selectAdversaire
+}
 
 
 //AJOUT fonction donnant un nom à chaque hero de chaque equipe et verifier à chaque fois si son nom n'a pas été déja donné parmi les heros allié et adverse

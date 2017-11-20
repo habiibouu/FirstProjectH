@@ -249,7 +249,7 @@ Capacité Spécial:</string>
                                         <rect key="frame" x="22" y="33" width="106" height="37"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="redTeamButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="0dA-YP-A3J"/>
+                                            <action selector="selectHeroButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="0dA-YP-A3J"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perso 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uum-5L-7zA">
@@ -271,7 +271,7 @@ Capacité Spécial:</string>
                                             <constraint firstAttribute="height" constant="40" id="3Z4-Bx-aBN"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="redTeamButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="3Xh-yP-sGO"/>
+                                            <action selector="selectHeroButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="3Xh-yP-sGO"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perso 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m8-0G-6Ty">
@@ -293,7 +293,7 @@ Capacité Spécial:</string>
                                             <constraint firstAttribute="height" constant="37" id="fe9-M1-dUU"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="redTeamButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="Wlz-cN-eo8"/>
+                                            <action selector="selectHeroButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="Wlz-cN-eo8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -350,7 +350,7 @@ Capacité Spécial:</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="PV: 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsR-6z-Hhh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PV: 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsR-6z-Hhh">
                                         <rect key="frame" x="29.5" y="146" width="88.5" height="20"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -363,7 +363,7 @@ Capacité Spécial:</string>
                                             <constraint firstAttribute="height" constant="38" id="txy-6j-VBN"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="redTeamButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="krb-5j-kB3"/>
+                                            <action selector="selectHeroButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="krb-5j-kB3"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perso 1 FF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hC-Bc-enc">
@@ -388,7 +388,7 @@ Capacité Spécial:</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="redTeamButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="4xn-z0-2EP"/>
+                                            <action selector="selectHeroButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="4xn-z0-2EP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.40000000000000002" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FR7-v4-JBZ" userLabel="THIRD">
@@ -398,7 +398,7 @@ Capacité Spécial:</string>
                                             <constraint firstAttribute="height" constant="36" id="ARL-zV-5kb"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="redTeamButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="nxk-z0-kpd"/>
+                                            <action selector="selectHeroButtonPressed:" destination="NER-47-4Oc" eventType="touchUpInside" id="nxk-z0-kpd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -424,6 +424,7 @@ Capacité Spécial:</string>
                                     <constraint firstItem="kdt-mS-1rx" firstAttribute="width" secondItem="wTT-nk-xC6" secondAttribute="width" id="Wle-jk-K6n"/>
                                     <constraint firstItem="OJa-2v-Mwf" firstAttribute="centerX" secondItem="kdt-mS-1rx" secondAttribute="centerX" id="cGd-a0-qh3"/>
                                     <constraint firstItem="OJa-2v-Mwf" firstAttribute="leading" secondItem="cTD-L9-C6D" secondAttribute="leading" id="d1w-3B-iSX"/>
+                                    <constraint firstItem="OsR-6z-Hhh" firstAttribute="top" secondItem="cTD-L9-C6D" secondAttribute="bottom" constant="2" id="itf-Wb-tAq"/>
                                     <constraint firstItem="OJa-2v-Mwf" firstAttribute="centerX" secondItem="OsR-6z-Hhh" secondAttribute="centerX" id="mvm-M3-aR7"/>
                                     <constraint firstItem="kdt-mS-1rx" firstAttribute="top" secondItem="9PI-uG-ffo" secondAttribute="top" constant="32" id="nhA-Yg-jfX"/>
                                     <constraint firstItem="XEM-Y7-0hZ" firstAttribute="top" secondItem="5hC-Bc-enc" secondAttribute="bottom" id="qQQ-Wa-6gp"/>
@@ -453,10 +454,10 @@ Capacité Spécial:</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyX-Vv-16V">
-                                <rect key="frame" x="209" y="554" width="156" height="50"/>
+                                <rect key="frame" x="205" y="554" width="160" height="50"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="109" id="NrR-8g-cbM"/>
+                                    <constraint firstAttribute="width" constant="160" id="NrR-8g-cbM"/>
                                     <constraint firstAttribute="height" constant="50" id="gi3-h2-IGr"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -471,7 +472,7 @@ Capacité Spécial:</string>
                                 <rect key="frame" x="10" y="554" width="160" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="109" id="cG2-ZY-rdv"/>
+                                    <constraint firstAttribute="width" constant="160" id="cG2-ZY-rdv"/>
                                 </constraints>
                                 <state key="normal" title="Action normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -491,12 +492,10 @@ Capacité Spécial:</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZMd-Tm-cUd" firstAttribute="trailing" secondItem="6nE-Kv-aNs" secondAttribute="trailing" id="0JN-4S-ni6"/>
                             <constraint firstItem="HSZ-Fw-zMB" firstAttribute="top" secondItem="Pdm-F9-i2x" secondAttribute="bottom" constant="33" id="5Nu-GF-Hcr"/>
                             <constraint firstItem="6nE-Kv-aNs" firstAttribute="top" secondItem="qpf-pz-TNX" secondAttribute="top" constant="40" id="5QR-dg-6Z1"/>
                             <constraint firstItem="ZMd-Tm-cUd" firstAttribute="top" secondItem="HSZ-Fw-zMB" secondAttribute="bottom" constant="74" id="7OG-Y4-WrH"/>
                             <constraint firstItem="1D5-2t-REL" firstAttribute="bottom" secondItem="Q7e-Xv-r5k" secondAttribute="bottom" id="8FM-1P-M3E"/>
-                            <constraint firstItem="XyX-Vv-16V" firstAttribute="leading" secondItem="9PI-uG-ffo" secondAttribute="leading" id="BJo-xJ-Ul2"/>
                             <constraint firstItem="9PI-uG-ffo" firstAttribute="bottom" secondItem="6nE-Kv-aNs" secondAttribute="bottom" id="ClB-PN-1AZ"/>
                             <constraint firstItem="9PI-uG-ffo" firstAttribute="top" secondItem="6nE-Kv-aNs" secondAttribute="top" id="FpL-hV-vEo"/>
                             <constraint firstItem="qpf-pz-TNX" firstAttribute="trailing" secondItem="HSZ-Fw-zMB" secondAttribute="trailing" constant="60" id="Kmo-UJ-QYU"/>
@@ -509,15 +508,14 @@ Capacité Spécial:</string>
                             <constraint firstItem="HSZ-Fw-zMB" firstAttribute="leading" secondItem="qpf-pz-TNX" secondAttribute="leading" constant="60" id="bf9-fS-KXf"/>
                             <constraint firstItem="1D5-2t-REL" firstAttribute="leading" secondItem="qpf-pz-TNX" secondAttribute="leading" constant="10" id="geH-YN-Rex"/>
                             <constraint firstItem="Pdm-F9-i2x" firstAttribute="centerX" secondItem="qpf-pz-TNX" secondAttribute="centerX" id="k8f-3l-Sq6"/>
-                            <constraint firstItem="ZMd-Tm-cUd" firstAttribute="top" secondItem="XyX-Vv-16V" secondAttribute="top" id="l1a-xc-44N"/>
                             <constraint firstItem="1D5-2t-REL" firstAttribute="top" secondItem="Q7e-Xv-r5k" secondAttribute="top" id="lcp-On-vbZ"/>
                             <constraint firstItem="qpf-pz-TNX" firstAttribute="bottom" secondItem="ZMd-Tm-cUd" secondAttribute="bottom" constant="63" id="ml2-JM-G2M"/>
+                            <constraint firstItem="XyX-Vv-16V" firstAttribute="centerY" secondItem="ZMd-Tm-cUd" secondAttribute="centerY" id="nOd-2a-K9U"/>
                             <constraint firstItem="ZMd-Tm-cUd" firstAttribute="leading" secondItem="qpf-pz-TNX" secondAttribute="leading" constant="10" id="q7o-M4-iKc"/>
                             <constraint firstItem="6nE-Kv-aNs" firstAttribute="leading" secondItem="qpf-pz-TNX" secondAttribute="leading" constant="20" id="sBf-in-5Wd"/>
                             <constraint firstItem="Q7e-Xv-r5k" firstAttribute="centerX" secondItem="qpf-pz-TNX" secondAttribute="centerX" id="t67-TY-htf"/>
                             <constraint firstItem="qpf-pz-TNX" firstAttribute="trailing" secondItem="XyX-Vv-16V" secondAttribute="trailing" constant="10" id="xx2-Mi-ex7"/>
                             <constraint firstItem="HSZ-Fw-zMB" firstAttribute="centerX" secondItem="qpf-pz-TNX" secondAttribute="centerX" id="yJl-OC-eUA"/>
-                            <constraint firstItem="ZMd-Tm-cUd" firstAttribute="firstBaseline" secondItem="XyX-Vv-16V" secondAttribute="baseline" id="yic-sZ-bLt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qpf-pz-TNX"/>
                     </view>
@@ -528,7 +526,7 @@ Capacité Spécial:</string>
                         <outlet property="RedSecondHeroPV" destination="bfU-fR-zhV" id="XnW-iN-51f"/>
                         <outlet property="RedThirdHeroName" destination="2m8-0G-6Ty" id="kDq-Zb-Zqv"/>
                         <outlet property="RedThirdHeroPV" destination="tyw-DT-uK8" id="sGg-W6-P8n"/>
-                        <outlet property="actionDescription" destination="Pdm-F9-i2x" id="URq-V8-Fvg"/>
+                        <outlet property="actionDescription" destination="Pdm-F9-i2x" id="ZcD-d5-OQX"/>
                         <outlet property="blueFirstHeroName" destination="wTT-nk-xC6" id="5bw-fl-kb7"/>
                         <outlet property="blueFirstHeroPV" destination="JhV-8U-dqq" id="Apt-3f-osD"/>
                         <outlet property="blueSecondHeroName" destination="cTD-L9-C6D" id="sJS-7B-Cwe"/>
@@ -539,6 +537,7 @@ Capacité Spécial:</string>
                         <outlet property="normalAction" destination="ZMd-Tm-cUd" id="O0V-Qa-wOJ"/>
                         <outlet property="numberTurn" destination="1D5-2t-REL" id="TYL-cV-t81"/>
                         <outlet property="redTeamView" destination="6nE-Kv-aNs" id="4Vm-RY-5ek"/>
+                        <outlet property="selectAction" destination="HSZ-Fw-zMB" id="l3H-H9-CRw"/>
                         <outlet property="specialAction" destination="XyX-Vv-16V" id="dAT-bv-a0s"/>
                         <outlet property="turnTeam" destination="Q7e-Xv-r5k" id="ZS3-KU-0DC"/>
                     </connections>
