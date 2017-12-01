@@ -33,7 +33,7 @@ class BeginPartyVC: UIViewController {
     //TOP LABELS
     @IBOutlet weak var turnTeam: UILabel!
     @IBOutlet weak var numberTurn: UILabel!
-
+    @IBOutlet weak var OK: UIButton!
     //ACTIONS
     @IBOutlet weak var actionDescription: UILabel!
     @IBOutlet weak var selectAction: UILabel!
@@ -65,74 +65,38 @@ class BeginPartyVC: UIViewController {
         if actionTurn == .selectHero {
             actionTurn = .selectAction
         } else if actionTurn == .selectAdversaire {
-            actionTurn = .selectHero
-            if teamTurn == .redTurn {
-                teamTurn = .blueTurn
-            } else {
-                teamTurn = .redTurn
-            }
+            actionTurn = .displayAction
         }
+       
+    
+        
         
         updateDisplayForTurn()
     
-        //var finishSelect = false
         
-//
-//        if GameConstants.redTeam.hisTurn == true {
-//            blueTeamView.isUserInteractionEnabled = false
-//            blueTeamView.alpha = 0.3
-//            GameConstants.heroChoice = GameConstants.redTeam.heros[sender.tag]
-//            finishSelect = true
-////            specialAction.text = "Action spe: \(GameConstants.redTeam.heros[sender.tag].attack)"
-////            normalAction.text = "Action normal: \(GameConstants.redTeam.heros[sender.tag].specialCapacity)"
-//        }
-//
-//
-//        if blueTeamView.isUserInteractionEnabled == false && finishSelect == true  {
-//            redTeamView.isUserInteractionEnabled = false
-//            redTeamView.alpha = 0.3
-//            blueTeamView.isUserInteractionEnabled = true
-//            GameConstants.heroTarget = GameConstants.blueTeam.heros[sender.tag]
-//            finishSelect = false
-//        }
-//
-//        //faire qqchose pour afficher l'action qui se déroule après avoir selectionner l'action
-//
-//        if GameConstants.blueTeam.hisTurn == true {
-//            redTeamView.isUserInteractionEnabled = false
-//            redTeamView.alpha = 0.3
-//            GameConstants.heroChoice = GameConstants.blueTeam.heros[sender.tag]
-//            finishSelect = true
-////            specialAction.text = "Action spe: \(GameConstants.blueTeam.heros[sender.tag].attack)"
-////            normalAction.text = "Action normal: \(GameConstants.blueTeam.heros[sender.tag].specialCapacity)"
-////
-//        }
-//        if redTeamView.isUserInteractionEnabled == false && finishSelect == true  {
-//            blueTeamView.isUserInteractionEnabled = false
-//            blueTeamView.alpha = 0.3
-//            redTeamView.isUserInteractionEnabled = true
-//            GameConstants.heroTarget = GameConstants.redTeam.heros[sender.tag]
-//            finishSelect = false
-//        }
     }
         
         @IBAction func actionNormal() {
             actionTurn = .selectAdversaire
             updateDisplayForTurn()
             
-//            if GameConstants.blueTeam.hisTurn == true {
-//            GameConstants.actionNow = GameConstants.heroChoice.attack
-//            }
-//            if GameConstants.redTeam.hisTurn == true {
-//                GameConstants.actionNow = GameConstants.heroChoice.attack
-//            }
+            if GameConstants.blueTeam.hisTurn == true {
+            GameConstants.actionNow = GameConstants.heroChoice.attack
+                GameConstants.blueTeam.hisTurn = false
+                GameConstants.redTeam.hisTurn = true
+            }
+            if GameConstants.redTeam.hisTurn == true {
+                GameConstants.actionNow = GameConstants.heroChoice.attack
+                GameConstants.blueTeam.hisTurn = false
+                GameConstants.redTeam.hisTurn = true
+            }
             
         }
     
         @IBAction func actionSpe() {
             if GameConstants.blueTeam.hisTurn == true {
                 GameConstants.actionNow = GameConstants.heroChoice.specialCapacity
-                GameConstants.redTeam.hisTurn = false
+                GameConstants.blueTeam.hisTurn = false
                 GameConstants.redTeam.hisTurn = true
                 
             }
@@ -141,8 +105,22 @@ class BeginPartyVC: UIViewController {
                 GameConstants.redTeam.hisTurn = false
                 GameConstants.blueTeam.hisTurn = true
             }
-    
+    actionTurn = .selectAdversaire
+    updateDisplayForTurn()
         }
+    
+    @IBAction func endTurn() {
+
+        if actionTurn == .displayAction {
+            if teamTurn == .redTurn {
+                teamTurn = .blueTurn
+            } else {
+                teamTurn = .redTurn
+            }
+        actionTurn = .selectHero
+        updateDisplayForTurn()
+    }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,11 +138,11 @@ class BeginPartyVC: UIViewController {
     }
     
     func updateDisplayForTurn() {
-        
-        
         if actionTurn == .selectHero {
+            actionDescription.isHidden = true
             if teamTurn == .redTurn {
                 hide(hiddenView: blueTeamView, andDisplay: redTeamView)
+                
                 
                 //mets à jour le texte
                 turnTeam.text = "C'est au tour de \(GameConstants.redTeam.name)"
@@ -184,14 +162,14 @@ class BeginPartyVC: UIViewController {
             }
         }
         
+        
         if actionTurn == .selectAction {
-            actionDescription.isHidden = false
+            
             selectAction.isHidden = false
             
             normalAction.isHidden = false
             specialAction.isHidden = false
-        } else {
-            actionDescription.isHidden = true
+        } else{
             selectAction.isHidden = true
             
             normalAction.isHidden = true
@@ -200,13 +178,27 @@ class BeginPartyVC: UIViewController {
         
         if selectedHeroForAction != nil {
             normalAction.setTitle("Hero : \(selectedHeroForAction!.name) Action: \(selectedHeroForAction!.attack)", for: .normal)
+            specialAction.setTitle("Hero : \(selectedHeroForAction!.name) Action: \(selectedHeroForAction!.specialCapacity)", for: .normal)
         }
-    }
+        
+         if actionTurn == .displayAction{
+            OK.isHidden = false
+            GameConstants.numberTurn += 1
+            actionDescription.isHidden = false
+            selectAction.isHidden = true
+            redTeamView.isHidden = true
+            blueTeamView.isHidden = true
+            selectAction.isHidden = true
+            numberTurn.text = "TOUR \(GameConstants.numberTurn)"
+            actionDescription.text = "\(selectedHeroForAction!) à effectuer l'action \(GameConstants.actionNow) pv sur \(selectedAdversaireForAction!) " //faire une condition permettant de dire si l'attaque à infliger ou à soigner
+        }
+        
+        }
     
     func initUI() {
 //        GameConstants.redTeam.hisTurn = true
 //        GameConstants.blueTeam.hisTurn = false
-        
+        OK.isHidden = true
         RedFirstHeroName.text = "\(GameConstants.redTeam.heros[0].name)"
         RedFirstHeroPV.text = "\(GameConstants.redTeam.heros[0].vitalPoint) PV"
         RedSecondHeroName.text = "\(GameConstants.redTeam.heros[1].name)"
@@ -236,3 +228,4 @@ class BeginPartyVC: UIViewController {
     }
 
 }
+
