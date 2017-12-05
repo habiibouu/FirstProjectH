@@ -30,14 +30,14 @@ class Hero {
 
 class Dwarf: Hero {
     init() {
-        super.init(vitalPoint: 50, attack: -15, specialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
+        super.init(vitalPoint: 50, attack: -100, specialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
         
     }
 }
 
 class Colossus: Hero {
     init() {
-        super.init(vitalPoint: 200, attack: -5, specialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
+        super.init(vitalPoint: 200, attack: -100, specialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
         
     }
 }
@@ -51,7 +51,7 @@ class Magus: Hero {
 
 class Warrior: Hero {
     init() {
-        super.init(vitalPoint: 100, attack: -10, specialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
+        super.init(vitalPoint: 100, attack: -100, specialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
     }
 }
 

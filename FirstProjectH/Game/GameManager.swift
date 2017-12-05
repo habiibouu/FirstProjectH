@@ -13,16 +13,13 @@ enum ActionTurn {
     case displayAction
 }
 
-
-//AJOUT fonction donnant un nom à chaque hero de chaque equipe et verifier à chaque fois si son nom n'a pas été déja donné parmi les heros allié et adverse
-//func add(name: String, to hero: Hero) {
-//    hero.name = name
-//}
-
-
+enum Winner {
+    case blueTeam
+    case redTeam
+    case noOne
+}
 
 
-//
 ////***Listage pour chaque équipe du détail des Hero adverse pour un choix d’action informé (sur leurs pv )
 //func detailPlayer(teamBlue: Team, teamRed: Team){
 //    if teamRed.hisTurn == true {
@@ -173,90 +170,4 @@ enum ActionTurn {
 //    heroSelect.cptWeapon = 3
 //
 //    ////////Penser à faire une autre class de héro avec comme capacité spécial permettant de destituer l'arme d'un adversaire mais laissant en laissant son compteur defilé (cad que si le hero à une arme pendant 1 tour et se fait destituer son arme à son 1er tour alors il devra qd meme attendre ses 2 tour restant pour pouvoir rouvrir un coffre aléatoire
-//}
-//
-//
-//
-////   /!\ La fonction indiquant si l'on veut faire une action normal ou une attaque spéciale
-//func choiceModeAction(to hero: Hero) -> Int{
-//    var action =  // = laisser l'utilisateur interargir en appuyant sur actionNormale ou actionSpécial
-//    if action == actionSpéciale {
-//        return hero.specialCapacity
-//    }
-//    if action == actionNormale{
-//        return hero.attack
-//    }
-//}
-//
-////   /!\ La fonction selectionnant le héro destinataire de l'action
-//
-//
-//
-//func targetedHero(teamRed: Team, teamBlue: Team) /* -> Hero */{
-//    if teamRed.hisTurn == true {
-//        //on choisie un hero allié si c'est un soin ou adverse si c'est une atk
-//    }
-//    else if teamBlue.hisTurn == true {
-//
-//    }
-//}
-//
-////   /!\ On détaille l'action faite par le joueur
-////Un enum différenciant les types d'action
-//enum AttributAction {
-//    case attack
-//    case heal
-//}
-//
-//enum TypeAction {
-//    case special
-//    case normal
-//}
-//
-//func detailAction(heroChoose: Hero,heroTarged: Hero, attribut:AttributAction, type: TypeAction){
-//    switch attribut {
-//    case .attack:
-//        switch type {
-//        case .normal:
-//            print("\(heroChoose.name) à infligé \(heroChoose.attack) Point de dégat à \(heroTarged.name)" )
-//        default:
-//            print("\(heroChoose.name) à infligé \(heroChoose.specialCapacity) Point de dégat  à \(heroTarged.name) ")
-//        }
-//    default:
-//        switch type {
-//        case .normal:
-//            print("\(heroChoose.name) à soigné \(heroChoose.attack) PV à \(heroTarged.name)" )
-//        default:
-//            print("\(heroChoose.name) à soigné \(heroChoose.specialCapacity) PV  à \(heroTarged.name) ")
-//        }
-//    }
-//}
-//    func loopEachTurn(teamR: Team, teamB: Team) {
-//        /* var heroSelect = */ chooseHero(teamRed: teamR, teamBlue: teamB)
-//        //chestWeapon(to:  heroSelect)
-//        //choiceModeAction(to: heroSelect)
-//        //var heroTarget = targetedHero(teamRed: teamR, teamBlue: teamB)
-//        detailAction(heroChoose: heroSelect, heroTarged: heroTarget, attribut: <#T##AttributAction#> /*pointeur vers le choix de l'utilisateur*/, type: <#T##TypeAction#>/*pointeur vers le choix de l'utilisateur*/)
-//
-//
-//}
-//
-////*** Fonction mort d'un héro si pv < 0
-//func deathHero (hero: Hero){
-//    if hero.vitalPoint <= 0 {
-//        hero.death = true
-//    }
-//}
-////*** Fonction Fin de partie si tous les héro sont mort (utiliser un compteur si le cpt = 3 alors end)
-//func endGame (team: Team){
-//    for hero in team.heroes {
-//        if hero.death = true{
-//            print("Fin de la partie")
-//            //faire en sorte que le jeu se termine et annonce le vainqueur
-//
-//        }
-//    }
-//}
-//
-//
-//
+

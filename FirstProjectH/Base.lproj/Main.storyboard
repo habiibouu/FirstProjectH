@@ -565,27 +565,62 @@ Capacité Spécial:</string>
                         <outlet property="RedThirdHeroName" destination="2m8-0G-6Ty" id="kDq-Zb-Zqv"/>
                         <outlet property="RedThirdHeroPV" destination="tyw-DT-uK8" id="sGg-W6-P8n"/>
                         <outlet property="actionDescription" destination="Pdm-F9-i2x" id="ZcD-d5-OQX"/>
+                        <outlet property="blueFirstHeroButton" destination="kdt-mS-1rx" id="Ub0-xC-0ei"/>
                         <outlet property="blueFirstHeroName" destination="wTT-nk-xC6" id="5bw-fl-kb7"/>
                         <outlet property="blueFirstHeroPV" destination="JhV-8U-dqq" id="Apt-3f-osD"/>
+                        <outlet property="blueSecondHeroButton" destination="OJa-2v-Mwf" id="YhK-xJ-Ihd"/>
                         <outlet property="blueSecondHeroName" destination="cTD-L9-C6D" id="sJS-7B-Cwe"/>
                         <outlet property="blueSecondHeroPV" destination="OsR-6z-Hhh" id="93N-ra-xC0"/>
                         <outlet property="blueTeamView" destination="9PI-uG-ffo" id="YuE-Zp-ngG"/>
+                        <outlet property="blueThirdHeroButton" destination="FR7-v4-JBZ" id="Zpv-kJ-442"/>
                         <outlet property="blueThirdHeroName" destination="5hC-Bc-enc" id="Rix-wz-zi6"/>
                         <outlet property="blueThirdHeroPV" destination="XEM-Y7-0hZ" id="auS-O6-HHh"/>
                         <outlet property="normalAction" destination="ZMd-Tm-cUd" id="O0V-Qa-wOJ"/>
                         <outlet property="numberTurn" destination="1D5-2t-REL" id="TYL-cV-t81"/>
+                        <outlet property="redFirstHeroButton" destination="nZs-zY-CbY" id="fpN-b7-bbe"/>
+                        <outlet property="redSecondHeroButton" destination="zen-o7-8al" id="Czt-Jo-6cy"/>
                         <outlet property="redTeamView" destination="6nE-Kv-aNs" id="4Vm-RY-5ek"/>
+                        <outlet property="redThirdHeroButton" destination="AND-2g-dI9" id="bg4-xp-6cR"/>
                         <outlet property="selectAction" destination="HSZ-Fw-zMB" id="l3H-H9-CRw"/>
                         <outlet property="specialAction" destination="XyX-Vv-16V" id="dAT-bv-a0s"/>
                         <outlet property="turnTeam" destination="Q7e-Xv-r5k" id="ZS3-KU-0DC"/>
+                        <segue destination="AVh-Rq-Q9b" kind="show" identifier="showEndGame" id="CGl-uZ-lpb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iI-7y-bME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2360.8000000000002" y="-33.733133433283363"/>
+            <point key="canvasLocation" x="2431" y="-33"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xhm-OI-ZwL">
+            <objects>
+                <viewController id="AVh-Rq-Q9b" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xpm-Yr-Me7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIN DE PARTY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-h8-kcq">
+                                <rect key="frame" x="20" y="326" width="335" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RHt-ye-4te" firstAttribute="trailing" secondItem="UL1-h8-kcq" secondAttribute="trailing" constant="20" id="t03-iG-gmQ"/>
+                            <constraint firstItem="UL1-h8-kcq" firstAttribute="leading" secondItem="RHt-ye-4te" secondAttribute="leading" constant="20" id="tbY-Xj-5X9"/>
+                            <constraint firstItem="UL1-h8-kcq" firstAttribute="centerY" secondItem="RHt-ye-4te" secondAttribute="centerY" id="uY4-xs-PZj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RHt-ye-4te"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeB-bZ-gJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3293.5999999999999" y="-33.733133433283363"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xPf-2Y-1Ag"/>
+        <segue reference="qL8-Ur-abK"/>
     </inferredMetricsTieBreakers>
 </document>

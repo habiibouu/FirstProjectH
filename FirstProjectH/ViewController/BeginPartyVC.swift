@@ -20,6 +20,10 @@ class BeginPartyVC: UIViewController {
     @IBOutlet weak var RedSecondHeroPV: UILabel!
     @IBOutlet weak var RedThirdHeroName: UILabel!
     @IBOutlet weak var RedThirdHeroPV: UILabel!
+    //button hero
+    @IBOutlet weak var redFirstHeroButton: UIButton!
+    @IBOutlet weak var redSecondHeroButton: UIButton!
+    @IBOutlet weak var redThirdHeroButton: UIButton!
     
     //BLUE TEAM
     @IBOutlet weak var blueTeamView: UIView!
@@ -29,6 +33,11 @@ class BeginPartyVC: UIViewController {
     @IBOutlet weak var blueSecondHeroPV: UILabel!
     @IBOutlet weak var blueThirdHeroName: UILabel!
     @IBOutlet weak var blueThirdHeroPV: UILabel!
+    //button hero
+    @IBOutlet weak var blueFirstHeroButton: UIButton!
+    @IBOutlet weak var blueSecondHeroButton: UIButton!
+    @IBOutlet weak var blueThirdHeroButton: UIButton!
+    
     
     //TOP LABELS
     @IBOutlet weak var turnTeam: UILabel!
@@ -41,12 +50,15 @@ class BeginPartyVC: UIViewController {
     @IBOutlet weak var specialAction: UIButton!
     
     var teamTurn: TeamTurn = .redTurn
+    var winner: Winner = .noOne
     var actionTurn: ActionTurn = .selectHero
     var selectedHeroForAction: Hero?
     var selectedAdversaireForAction: Hero?
+    var senderNumber = 0
     
     @IBAction func selectHeroButtonPressed(_ sender: UIButton) {
-    
+       //on associe le sender.tag à une variable pour le récuperer après dans la fonction updateGameResult
+        senderNumber = sender.tag
         if actionTurn == .selectHero || actionTurn == .selectAction {
             if teamTurn == .redTurn {
                 selectedHeroForAction = GameConstants.redTeam.heros[sender.tag]
@@ -56,6 +68,7 @@ class BeginPartyVC: UIViewController {
         } else if actionTurn == .selectAdversaire {
             if teamTurn == .redTurn {
                 selectedAdversaireForAction = GameConstants.blueTeam.heros[sender.tag]
+                
             } else {
                 selectedAdversaireForAction = GameConstants.redTeam.heros[sender.tag]
             }
@@ -78,19 +91,6 @@ class BeginPartyVC: UIViewController {
             GameConstants.actionNow = selectedHeroForAction!.attack
         }
         
-        // LE CODE EN DESSOUS NEST PAS NECESSAIRE CAR ON GERE DEJA LES TOURS DE CHAQUE EQUIPE SUR LE CONTROLLEUR
-        //
-        //
-        //            if teamTurn == .blueTurn {
-        //            GameConstants.actionNow = GameConstants.heroChoice.attack
-        //                GameConstants.blueTeam.hisTurn = false
-        //                GameConstants.redTeam.hisTurn = true
-        //            }
-        //            if teamTurn == .redTurn {
-        //                GameConstants.actionNow = GameConstants.heroChoice.attack
-        //                GameConstants.blueTeam.hisTurn = false
-        //                GameConstants.redTeam.hisTurn = true
-        //            }
         
     }
     
@@ -101,19 +101,6 @@ class BeginPartyVC: UIViewController {
         if selectedHeroForAction != nil {
             GameConstants.actionNow = selectedHeroForAction!.specialCapacity
         }
-        
-        // LE CODE EN DESSOUS NEST PAS NECESSAIRE CAR ON GERE DEJA LES TOURS DE CHAQUE EQUIPE SUR LE CONTROLLEUR
-        //            if teamTurn == .blueTurn {
-        //                GameConstants.actionNow = GameConstants.heroChoice.specialCapacity
-        //                GameConstants.blueTeam.hisTurn = false
-        //                GameConstants.redTeam.hisTurn = true
-        //
-        //            }
-        //            if teamTurn == .redTurn {
-        //                GameConstants.actionNow = GameConstants.heroChoice.specialCapacity
-        //                GameConstants.redTeam.hisTurn = false
-        //                GameConstants.blueTeam.hisTurn = true
-        //            }
         
     }
     
@@ -148,6 +135,8 @@ class BeginPartyVC: UIViewController {
     
     func updateGameResults() {
         selectedAdversaireForAction!.vitalPoint += GameConstants.actionNow
+        updateHeroDeath(number: senderNumber)
+        updateEndGame()
         // créer une fonction qui détecte si un héro est mort et faire en sorte qu'il ne soit plus sélectionnable
         
         // créer une fonction qui détecte si l'équipe n'a plus de héros disponible (et termine la partie)
@@ -164,14 +153,20 @@ class BeginPartyVC: UIViewController {
         
         // TURN = SELECT HERO
         if actionTurn == .selectHero {
+            initUI()
             redTeamView.isHidden = false
             blueTeamView.isHidden = false
+            
             if teamTurn == .redTurn {
+                //mise à jour nombre de tour
+                GameConstants.numberTurn += 1
+                numberTurn.text = "TOUR \(GameConstants.numberTurn)"
                 hide(hiddenView: blueTeamView, andDisplay: redTeamView)
                 
                 //mets à jour le texte
                 turnTeam.text = "C'est au tour de \(GameConstants.redTeam.name)"
                 turnTeam.textColor = UIColor.red
+                
             } else {
                 hide(hiddenView: redTeamView, andDisplay: blueTeamView)
                 
@@ -202,9 +197,7 @@ class BeginPartyVC: UIViewController {
         //TURN = DISPLAY ACTION (RESULT)
         if actionTurn == .displayAction {
             OK.isHidden = false
-            GameConstants.numberTurn += 1
             actionDescription.isHidden = false
-            numberTurn.text = "TOUR \(GameConstants.numberTurn)"
             actionDescription.text = "\(selectedHeroForAction!.name) à effectuer l'action \(GameConstants.actionNow) pv sur \(selectedAdversaireForAction!.name) " //faire une condition permettant de dire si l'attaque à infliger ou à soigner
         }
         
@@ -251,6 +244,75 @@ class BeginPartyVC: UIViewController {
         specialAction.titleLabel!.numberOfLines = 2
         specialAction.titleLabel!.textAlignment = .center
     }
+    
+    
+    func updateHeroDeath(number: Int) {
+            if GameConstants.redTeam.heros[number].vitalPoint <= 0 {
+                GameConstants.redTeam.heros[number].vitalPoint = 0
+                GameConstants.redTeam.heros[number].death = true
+                if number == 0 {
+                    redFirstHeroButton.alpha = 0.1
+                    redFirstHeroButton.isEnabled = false
+                }
+                if number == 1 {
+                    redSecondHeroButton.alpha = 0.1
+                    redSecondHeroButton.isEnabled = false
+                }
+                if number == 2 {
+                    redThirdHeroButton.alpha = 0.1
+                    redThirdHeroButton.isEnabled = false
+                }
+        }
+        
+            if GameConstants.blueTeam.heros[number].vitalPoint <= 0{
+                GameConstants.blueTeam.heros[number].vitalPoint = 0
+                GameConstants.blueTeam.heros[number].death = true
+                    if number == 0 {
+                        blueFirstHeroButton.alpha = 0.3
+                        blueFirstHeroButton.isEnabled = false
+                    }
+                    if number == 1 {
+                        blueSecondHeroButton.alpha = 0.3
+                        blueSecondHeroButton.isEnabled = false
+                    }
+                    if number == 2 {
+                        blueThirdHeroButton.alpha = 0.3
+                        blueThirdHeroButton.isEnabled = false
+                    }
+                    
+        }
+    }
+    
+    func updateEndGame() {
+        var cpt = 0
+        for nb in 0...2 {
+            if GameConstants.redTeam.heros[nb].death == true {
+                cpt += 1
+                if cpt == 3 {
+                    winner = .redTeam
+                     endGAME()
+                }
+            }
+            else {
+                cpt = 0
+            }
+            
+            
+            if GameConstants.blueTeam.heros[nb].death == true {
+                cpt += 1
+                if cpt == 3 {
+                    winner = .blueTeam
+                     endGAME()
+                }
+            } else {
+                cpt = 0
+            }
+        }
+    }
+    
+    func endGAME() {
+            self.performSegue(withIdentifier: "showEndGame", sender: self)
+}
     
     
     override func didReceiveMemoryWarning() {
