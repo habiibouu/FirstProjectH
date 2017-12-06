@@ -17,6 +17,7 @@
 		98D3C1231FB05941006C6D4A /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1201FB05941006C6D4A /* GameConstants.swift */; };
 		98D3C1241FB05941006C6D4A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1211FB05941006C6D4A /* GameManager.swift */; };
 		98D3C1251FB05941006C6D4A /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D3C1221FB05941006C6D4A /* HeroClass.swift */; };
+		98E4E8661FD7FC8400D95F87 /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E8651FD7FC8400D95F87 /* EndViewController.swift */; };
 		ED0FED9D1FB89D9E00CA8228 /* NameHeroRedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FED9C1FB89D9E00CA8228 /* NameHeroRedVC.swift */; };
 		ED1155581FBB5C0C00F2D180 /* BeginPartyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1155571FBB5C0C00F2D180 /* BeginPartyVC.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		98D3C1201FB05941006C6D4A /* GameConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
 		98D3C1211FB05941006C6D4A /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		98D3C1221FB05941006C6D4A /* HeroClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroClass.swift; sourceTree = "<group>"; };
+		98E4E8651FD7FC8400D95F87 /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		ED0FED9C1FB89D9E00CA8228 /* NameHeroRedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameHeroRedVC.swift; sourceTree = "<group>"; };
 		ED1155571FBB5C0C00F2D180 /* BeginPartyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginPartyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 				9868366F1FB355E800ECBDC2 /* TeamRedNameVC.swift */,
 				ED0FED9C1FB89D9E00CA8228 /* NameHeroRedVC.swift */,
 				ED1155571FBB5C0C00F2D180 /* BeginPartyVC.swift */,
+				98E4E8651FD7FC8400D95F87 /* EndViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				ED0FED9D1FB89D9E00CA8228 /* NameHeroRedVC.swift in Sources */,
 				98D3C1241FB05941006C6D4A /* GameManager.swift in Sources */,
 				986836701FB355E800ECBDC2 /* TeamRedNameVC.swift in Sources */,
+				98E4E8661FD7FC8400D95F87 /* EndViewController.swift in Sources */,
 				98D3C10E1FB058A3006C6D4A /* AppDelegate.swift in Sources */,
 				ED1155581FBB5C0C00F2D180 /* BeginPartyVC.swift in Sources */,
 				9852E3C51FB98B460036C0DE /* TeamClass.swift in Sources */,

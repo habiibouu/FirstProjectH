@@ -55,6 +55,7 @@ class BeginPartyVC: UIViewController {
     var selectedHeroForAction: Hero?
     var selectedAdversaireForAction: Hero?
     var senderNumber = 0
+
     
     @IBAction func selectHeroButtonPressed(_ sender: UIButton) {
        //on associe le sender.tag à une variable pour le récuperer après dans la fonction updateGameResult
@@ -136,16 +137,23 @@ class BeginPartyVC: UIViewController {
     func updateGameResults() {
         selectedAdversaireForAction!.vitalPoint += GameConstants.actionNow
         updateHeroDeath(number: senderNumber)
-        updateEndGame()
-        // créer une fonction qui détecte si un héro est mort et faire en sorte qu'il ne soit plus sélectionnable
-        
-        // créer une fonction qui détecte si l'équipe n'a plus de héros disponible (et termine la partie)
-        // pour tester cette dernière, n'hésite pas à augmenter les dégats des héros
-        
-        // pour le coffre : prévoir une fin de tour (les deux équipes ont jouées leur tour) ce coffre s'ouvrira a ce moment là.
-        
-        // pour aller plus loin : essayer d'imaginer la logique du coffre et commencer à coder
+        checkIfGameEnd()
     }
+    
+    func pickRandomWeapon() {
+        let randomIndex = Int(arc4random_uniform(UInt32(GameConstants.weaponList.count)))
+        let myRandomWeapon = GameConstants.weaponList[randomIndex]
+        
+        // implémenter cette fonction
+        // lance le coffre et augmenter les dégats d'un héro a la fin d'un tour (les deux équipes ont jouées)
+        // faire le unwind segue
+        
+        // pour l'affichage du coffre, utiliser ce code pour le message :
+//        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+//        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     func updateDisplayForTurn() {
         
@@ -247,73 +255,92 @@ class BeginPartyVC: UIViewController {
     
     
     func updateHeroDeath(number: Int) {
-            if GameConstants.redTeam.heros[number].vitalPoint <= 0 {
-                GameConstants.redTeam.heros[number].vitalPoint = 0
-                GameConstants.redTeam.heros[number].death = true
-                if number == 0 {
-                    redFirstHeroButton.alpha = 0.1
-                    redFirstHeroButton.isEnabled = false
-                }
-                if number == 1 {
-                    redSecondHeroButton.alpha = 0.1
-                    redSecondHeroButton.isEnabled = false
-                }
-                if number == 2 {
-                    redThirdHeroButton.alpha = 0.1
-                    redThirdHeroButton.isEnabled = false
-                }
+        
+        if GameConstants.redTeam.heros[number].vitalPoint <= 0 {
+            GameConstants.redTeam.heros[number].vitalPoint = 0
+            GameConstants.redTeam.heros[number].death = true
+            if number == 0 {
+                redFirstHeroButton.alpha = 0.1
+                redFirstHeroButton.isEnabled = false
+            }
+            if number == 1 {
+                redSecondHeroButton.alpha = 0.1
+                redSecondHeroButton.isEnabled = false
+            }
+            if number == 2 {
+                redThirdHeroButton.alpha = 0.1
+                redThirdHeroButton.isEnabled = false
+            }
         }
         
-            if GameConstants.blueTeam.heros[number].vitalPoint <= 0{
-                GameConstants.blueTeam.heros[number].vitalPoint = 0
-                GameConstants.blueTeam.heros[number].death = true
-                    if number == 0 {
-                        blueFirstHeroButton.alpha = 0.3
-                        blueFirstHeroButton.isEnabled = false
-                    }
-                    if number == 1 {
-                        blueSecondHeroButton.alpha = 0.3
-                        blueSecondHeroButton.isEnabled = false
-                    }
-                    if number == 2 {
-                        blueThirdHeroButton.alpha = 0.3
-                        blueThirdHeroButton.isEnabled = false
-                    }
-                    
+        if GameConstants.blueTeam.heros[number].vitalPoint <= 0{
+            GameConstants.blueTeam.heros[number].vitalPoint = 0
+            GameConstants.blueTeam.heros[number].death = true
+            if number == 0 {
+                blueFirstHeroButton.alpha = 0.3
+                blueFirstHeroButton.isEnabled = false
+            }
+            if number == 1 {
+                blueSecondHeroButton.alpha = 0.3
+                blueSecondHeroButton.isEnabled = false
+            }
+            if number == 2 {
+                blueThirdHeroButton.alpha = 0.3
+                blueThirdHeroButton.isEnabled = false
+            }
+            
         }
     }
     
-    func updateEndGame() {
-        var cpt = 0
-        for nb in 0...2 {
-            if GameConstants.redTeam.heros[nb].death == true {
-                cpt += 1
-                if cpt == 3 {
-                    winner = .redTeam
-                     endGAME()
-                }
-            }
-            else {
-                cpt = 0
-            }
-            
-            
-            if GameConstants.blueTeam.heros[nb].death == true {
-                cpt += 1
-                if cpt == 3 {
-                    winner = .blueTeam
-                     endGAME()
-                }
-            } else {
-                cpt = 0
+    func checkIfGameEnd() {
+        
+        let redHeros = GameConstants.redTeam.heros.filter {$0.vitalPoint > 0}
+        if redHeros.count == 0 {
+            //je n'ai plus de héros avec des vies dans l'équipe rouge
+            winner = .blueTeam
+            performSegue(withIdentifier: "showEndGame", sender: self)
+        }
+        
+        let blueHeros = GameConstants.blueTeam.heros.filter {$0.vitalPoint > 0}
+        if blueHeros.count == 0 {
+            //je n'ai plus de héros avec des vies dans l'équipe bleue
+            winner = .redTeam
+            performSegue(withIdentifier: "showEndGame", sender: self)
+        }
+    
+//        var cpt = 0
+//        for nb in 0...2 {
+//            if GameConstants.redTeam.heros[nb].death == true {
+//                cpt += 1
+//                if cpt == 3 {
+//                    winner = .redTeam
+//                    self.performSegue(withIdentifier: "showEndGame", sender: self)
+//                }
+//            }
+//            else {
+//                cpt = 0
+//            }
+//
+//
+//            if GameConstants.blueTeam.heros[nb].death == true {
+//                cpt += 1
+//                if cpt == 3 {
+//                    winner = .blueTeam
+//                    self.performSegue(withIdentifier: "showEndGame", sender: self)
+//                }
+//            } else {
+//                cpt = 0
+//            }
+//        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEndGame" {
+            if let pageDeDestination = segue.destination as? EndViewController {
+                pageDeDestination.winner = self.winner
             }
         }
     }
-    
-    func endGAME() {
-            self.performSegue(withIdentifier: "showEndGame", sender: self)
-}
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

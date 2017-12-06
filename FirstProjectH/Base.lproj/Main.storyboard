@@ -591,10 +591,10 @@ Capacité Spécial:</string>
             </objects>
             <point key="canvasLocation" x="2431" y="-33"/>
         </scene>
-        <!--View Controller-->
+        <!--End View Controller-->
         <scene sceneID="xhm-OI-ZwL">
             <objects>
-                <viewController id="AVh-Rq-Q9b" sceneMemberID="viewController">
+                <viewController id="AVh-Rq-Q9b" customClass="EndViewController" customModule="FirstProjectH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xpm-Yr-Me7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -614,6 +614,9 @@ Capacité Spécial:</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RHt-ye-4te"/>
                     </view>
+                    <connections>
+                        <outlet property="endingMessage" destination="UL1-h8-kcq" id="VOq-6x-Uf1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KeB-bZ-gJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

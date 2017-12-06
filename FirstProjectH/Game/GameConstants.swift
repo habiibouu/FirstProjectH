@@ -16,6 +16,12 @@ class GameConstants {
 //    static var heroChoice =  Hero(vitalPoint: 0, attack: 0, specialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
     static var heroTarget = Hero(vitalPoint: 0, attack: 0, specialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
     static var actionNow = 0
+    
+    static var weaponList = [
+        Weapon(pointAddAction: 10, typeAtk: true, name: "Escalibure"),
+        Weapon(pointAddAction: 7, typeAtk: true, name: "Amulette du dragon"),
+        Weapon(pointAddAction: 5, typeAtk: true, name: "Glaive de la foie")
+                            ]
 }
 
 

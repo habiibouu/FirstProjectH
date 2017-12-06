@@ -1,5 +1,15 @@
 //Creation of class Teams
 
+class Weapon {
+    var pointAddAction: Int
+    var name : String
+    var typeAtk : Bool //type de l'arme étant une arme d'attaque par défaultsi true si non arme de soin
+    init(pointAddAction: Int, typeAtk: Bool, name: String){
+        self.pointAddAction = pointAddAction
+        self.typeAtk = typeAtk
+        self.name = name
+    }
+}
 
 enum TeamTurn {
     case redTurn
@@ -48,31 +58,11 @@ enum Winner {
 //
 //// /!\ Les fonctions pour les coffre arme
 ////Création classes Armes
-//class Weapon {
-//    var pointAddAction: Int
-//    var name : String
-//    var typeAtk : Bool //type de l'arme étant une arme d'attaque par défaultsi true si non arme de soin
-//    init(pointAddAction: Int, typeAtk: Bool, name: String){
-//        self.pointAddAction = pointAddAction
-//        self.typeAtk = typeAtk
-//        self.name = name
-//    }
-//}
+
 //
 ////Création d'un tableaux contenant toutes les armes
-//var weaponList = [Weapon]()
-//weaponList[0].name = "Escalibure"
-//weaponList[0].pointAddAction = +10
-//weaponList[0].typeAtk = true
-//
-//weaponList[1].name = "Amulette du dragon"
-//weaponList[1].pointAddAction = +7
-//weaponList[1].typeAtk = true
-//
-//weaponList[2].name = "Glaive de la foie"
-//weaponList[2].pointAddAction = +5
-//weaponList[2].typeAtk = true
-//
+
+
 //weaponList[3].name = "Baton de puissance"
 //weaponList[3].pointAddAction = +3
 //weaponList[3].typeAtk = true
