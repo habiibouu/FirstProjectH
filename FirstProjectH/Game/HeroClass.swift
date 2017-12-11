@@ -4,8 +4,28 @@ class Hero {
     var name: String = ""
     var vitalPoint: Int
     var specialPoint: Int = 0//faire en sorte que à chaque tour d'action la capacité spécial augmente de 20 et arriver a 100 on peut activer la special capacity
-    var attack: Int//On devrait l'appeler action car selon le hero l'action sera d'enlever ou d'ajouter des pv, la spécificité sera indiquer sur les carte hero
-    var specialCapacity: Int
+    var baseAttack: Int //On devrait l'appeler action car selon le hero l'action sera d'enlever ou d'ajouter des pv, la spécificité sera indiquer sur les carte hero
+    var baseSpecialCapacity: Int
+    var attack: Int {
+        get {
+            // identique à == true
+            if weapon.typeAtk {
+                return baseAttack + weapon.pointAddAction
+            }
+            // pas besoin de else car on sort de la fonction avant
+            return baseAttack
+        }
+    }
+    var specialCapacity: Int {
+        get {
+            // identique à == false
+            if !(weapon.typeAtk) {
+                return baseSpecialCapacity + weapon.pointAddAction
+            }
+            // pas besoin de else car on sort de la fonction avant
+            return baseSpecialCapacity
+        }
+    }
     //faire une fonction ou autre determinant ensuite si la capacité enleverra des point a l'adversaire ds le cas des combattant ou soignera les allié ds le cas du mage
     //ou si elle peut paraliser un hero
     //var canMove : Bool
@@ -19,10 +39,10 @@ class Hero {
     
     var cptWeapon = 0
     var weapon = Weapon(pointAddAction: 0, typeAtk: true, name: "")
-    init(vitalPoint: Int, attack: Int, specialCapacity: Int, typeATK: Bool, typeHEAL: Bool, typeActionNormalAtk: Bool, typeActionSpeAtk: Bool){
+    init(vitalPoint: Int, baseAttack: Int, baseSpecialCapacity: Int, typeATK: Bool, typeHEAL: Bool, typeActionNormalAtk: Bool, typeActionSpeAtk: Bool){
         self.vitalPoint = vitalPoint
-        self.attack = attack
-        self.specialCapacity = specialCapacity
+        self.baseAttack = baseAttack
+        self.baseSpecialCapacity = baseSpecialCapacity
         self.typeATK = typeATK
         self.typeHEAL = typeHEAL
         self.typeActionSpeAtk = typeActionSpeAtk
@@ -32,28 +52,28 @@ class Hero {
 
 class Dwarf: Hero {
     init() {
-        super.init(vitalPoint: 50, attack: -15, specialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
+        super.init(vitalPoint: 50, baseAttack: -15, baseSpecialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
         
     }
 }
 
 class Colossus: Hero {
     init() {
-        super.init(vitalPoint: 200, attack: -10, specialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
+        super.init(vitalPoint: 200, baseAttack: -10, baseSpecialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
         
     }
 }
 
 class Magus: Hero {
     init() {
-        super.init(vitalPoint: 150, attack: +20, specialCapacity: +40, typeATK: false, typeHEAL: true, typeActionNormalAtk: false, typeActionSpeAtk: false)
+        super.init(vitalPoint: 150, baseAttack: +20, baseSpecialCapacity: +40, typeATK: false, typeHEAL: true, typeActionNormalAtk: false, typeActionSpeAtk: false)
         
     }
 }
 
 class Warrior: Hero {
     init() {
-        super.init(vitalPoint: 100, attack: -10, specialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
+        super.init(vitalPoint: 100, baseAttack: -10, baseSpecialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
     }
 }
 

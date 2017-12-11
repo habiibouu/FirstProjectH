@@ -55,7 +55,7 @@ class BeginPartyVC: UIViewController {
     var selectedHeroForAction: Hero?
     var selectedAdversaireForAction: Hero?
     var senderNumber = 0
-    var oldWeapon = Weapon(pointAddAction: 0, typeAtk: true, name: " ")
+    //var oldWeapon = Weapon(pointAddAction: 0, typeAtk: true, name: " ")
     var CorrectListWeapon = [Weapon]()
 
     
@@ -70,11 +70,19 @@ class BeginPartyVC: UIViewController {
                 selectedHeroForAction = GameConstants.blueTeam.heros[sender.tag]
             }
         } else if actionTurn == .selectAdversaire {
-            if teamTurn == .redTurn {
-                selectedAdversaireForAction = GameConstants.blueTeam.heros[sender.tag]
-                
+            //JE SUIS UN HEAL, JE SOIGNE MES ALLIES
+            if selectedHeroForAction?.typeHEAL == true {
+                if teamTurn == .redTurn {
+                    selectedAdversaireForAction = GameConstants.redTeam.heros[sender.tag]
+                } else {
+                    selectedAdversaireForAction = GameConstants.blueTeam.heros[sender.tag]
+                }
             } else {
-                selectedAdversaireForAction = GameConstants.redTeam.heros[sender.tag]
+                if teamTurn == .redTurn {
+                    selectedAdversaireForAction = GameConstants.blueTeam.heros[sender.tag]
+                } else {
+                    selectedAdversaireForAction = GameConstants.redTeam.heros[sender.tag]
+                }
             }
         }
         
@@ -91,15 +99,10 @@ class BeginPartyVC: UIViewController {
         } else if actionTurn == .selectAdversaire {
             actionTurn = .displayAction
         }
-        
-      
         updateDisplayForTurn()
-       
        
     }
     
-    
-        
     @IBAction func actionNormal() {
         actionTurn = .selectAdversaire
         updateDisplayForTurn()
@@ -158,63 +161,66 @@ class BeginPartyVC: UIViewController {
     }
     
     func pickRandomWeapon(heroAddPower: Hero) {
-        if heroAddPower.cptChest == 0 {
-            oldWeapon.pointAddAction = heroAddPower.weapon.pointAddAction
-            heroAddPower.cptChest += 3
-        //On filtre les objet dans la liste des armes pour pouvoir attribué la bonne arme au héro du type atk, heal, atk et heal
-        CorrectListWeapon = GameConstants.weaponList
-
-        if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false{
-            CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true}
-            
-        }
-        else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
-            CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == false}
-        }
-        else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true {
-            CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true && $0.typeAtk == false}
-        }
         
-        // On fait la recherche aléatoire d'une arme dans le coffre filtré
-            let randomIndex = Int(arc4random_uniform(UInt32(CorrectListWeapon.count)))
-        CorrectListWeapon = GameConstants.weaponList
-        heroAddPower.weapon = CorrectListWeapon[randomIndex]
+        if heroAddPower.cptChest == 0 {
+            //            oldWeapon.pointAddAction = heroAddPower.weapon.pointAddAction
+            heroAddPower.cptChest += 3
+            //On filtre les objet dans la liste des armes pour pouvoir attribué la bonne arme au héro du type atk, heal, atk et heal
+            CorrectListWeapon = GameConstants.weaponList
             
-        // Selon L'arme nous allons augmenter l'action normal et l'action spé, ou que l'action normal ou que l'action spé selon l'attribut du hero et selon les atribut des arme. on supprime l'add de l'ancienne arme.
-        if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false {
-            heroAddPower.attack += oldWeapon.pointAddAction
-            heroAddPower.attack -= heroAddPower.weapon.pointAddAction
-            heroAddPower.specialCapacity += oldWeapon.pointAddAction
-            heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
+            if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false{
+                CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true}
+                
             }
-        else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
-            heroAddPower.attack -= oldWeapon.pointAddAction
-            heroAddPower.attack += heroAddPower.weapon.pointAddAction
-            heroAddPower.specialCapacity -= oldWeapon.pointAddAction
-            heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
-        }
-        else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true{
-            if heroAddPower.weapon.typeAtk == true {
-                if heroAddPower.typeActionNormalAtk == true {
-                    heroAddPower.attack += oldWeapon.pointAddAction
-                    heroAddPower.attack -= heroAddPower.weapon.pointAddAction
-                }
-                else if heroAddPower.typeActionSpeAtk == true {
-                    heroAddPower.specialCapacity += oldWeapon.pointAddAction
-                    heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
-                }
+            else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
+                CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == false}
             }
-            else if heroAddPower.weapon.typeAtk == false  {
-                    if heroAddPower.typeActionNormalAtk == false {
-                        heroAddPower.attack -= oldWeapon.pointAddAction
-                        heroAddPower.attack += heroAddPower.weapon.pointAddAction
-                    }
-                    else if heroAddPower.typeActionSpeAtk == false {
-                        heroAddPower.specialCapacity -= oldWeapon.pointAddAction
-                        heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
-                    }
+            else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true {
+                CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true && $0.typeAtk == false}
             }
-            }
+            
+            // On fait la recherche aléatoire d'une arme dans le coffre filtré
+            let randomIndex = Int(arc4random_uniform(UInt32(CorrectListWeapon.count)))
+            CorrectListWeapon = GameConstants.weaponList
+            heroAddPower.weapon = CorrectListWeapon[randomIndex]
+            
+            // Selon L'arme nous allons augmenter l'action normal et l'action spé, ou que l'action normal ou que l'action spé selon l'attribut du hero et selon les atribut des arme. on supprime l'add de l'ancienne arme.
+            
+            
+            //            if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false {
+            //                heroAddPower.attack += oldWeapon.pointAddAction
+            //                heroAddPower.attack -= heroAddPower.weapon.pointAddAction
+            //                heroAddPower.specialCapacity += oldWeapon.pointAddAction
+            //                heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
+            //            }
+            //            else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
+            //                heroAddPower.attack -= oldWeapon.pointAddAction
+            //                heroAddPower.attack += heroAddPower.weapon.pointAddAction
+            //                heroAddPower.specialCapacity -= oldWeapon.pointAddAction
+            //                heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
+            //            }
+            //            else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true{
+            //                if heroAddPower.weapon.typeAtk == true {
+            //                    if heroAddPower.typeActionNormalAtk == true {
+            //                        heroAddPower.attack += oldWeapon.pointAddAction
+            //                        heroAddPower.attack -= heroAddPower.weapon.pointAddAction
+            //                    }
+            //                    else if heroAddPower.typeActionSpeAtk == true {
+            //                        heroAddPower.specialCapacity += oldWeapon.pointAddAction
+            //                        heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
+            //                    }
+            //                }
+            //                else if heroAddPower.weapon.typeAtk == false  {
+            //                    if heroAddPower.typeActionNormalAtk == false {
+            //                        heroAddPower.attack -= oldWeapon.pointAddAction
+            //                        heroAddPower.attack += heroAddPower.weapon.pointAddAction
+            //                    }
+            //                    else if heroAddPower.typeActionSpeAtk == false {
+            //                        heroAddPower.specialCapacity -= oldWeapon.pointAddAction
+            //                        heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
+            //                    }
+            //                }
+            //            }
             
             let alert = UIAlertController(title: "Coffre débloqué", message: "Vous obtenez une nouvelle arme: \(heroAddPower.weapon.name) +\(heroAddPower.weapon.pointAddAction) points action", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -222,7 +228,7 @@ class BeginPartyVC: UIViewController {
         }
         
         heroAddPower.cptChest -= 1
-       
+        
         // penser à faire les modif pour utiliser les action heal sur les allié et non sur les ennemis
         // faire le unwind segue
         
@@ -262,10 +268,19 @@ class BeginPartyVC: UIViewController {
         if actionTurn == .selectAdversaire {
             redTeamView.isHidden = false
             blueTeamView.isHidden = false
-            if teamTurn == .redTurn {
-                hide(hiddenView: redTeamView, andDisplay: blueTeamView)
+            // JE SUIS HEAL, JE SOIGNE MES ALIES
+            if selectedHeroForAction?.typeHEAL == true {
+                if teamTurn == .redTurn {
+                    hide(hiddenView: blueTeamView, andDisplay: redTeamView)
+                } else {
+                    hide(hiddenView: redTeamView, andDisplay: blueTeamView)
+                }
             } else {
-                hide(hiddenView: blueTeamView, andDisplay: redTeamView)
+                if teamTurn == .redTurn {
+                    hide(hiddenView: redTeamView, andDisplay: blueTeamView)
+                } else {
+                    hide(hiddenView: blueTeamView, andDisplay: redTeamView)
+                }
             }
         }
         
