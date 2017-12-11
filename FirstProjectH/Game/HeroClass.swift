@@ -1,4 +1,5 @@
 //Creation of class Hero
+
 class Hero {
     var name: String = ""
     var vitalPoint: Int
@@ -11,12 +12,13 @@ class Hero {
     var death : Bool = false
     var typeATK : Bool
     var typeHEAL: Bool
+    var cptChest = 0
     
     var typeActionNormalAtk : Bool
     var typeActionSpeAtk : Bool
     
     var cptWeapon = 0
-    
+    var weapon = Weapon(pointAddAction: 0, typeAtk: true, name: "")
     init(vitalPoint: Int, attack: Int, specialCapacity: Int, typeATK: Bool, typeHEAL: Bool, typeActionNormalAtk: Bool, typeActionSpeAtk: Bool){
         self.vitalPoint = vitalPoint
         self.attack = attack
@@ -30,14 +32,14 @@ class Hero {
 
 class Dwarf: Hero {
     init() {
-        super.init(vitalPoint: 50, attack: -250, specialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
+        super.init(vitalPoint: 50, attack: -15, specialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
         
     }
 }
 
 class Colossus: Hero {
     init() {
-        super.init(vitalPoint: 200, attack: -250, specialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
+        super.init(vitalPoint: 200, attack: -10, specialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
         
     }
 }
@@ -51,7 +53,7 @@ class Magus: Hero {
 
 class Warrior: Hero {
     init() {
-        super.init(vitalPoint: 100, attack: -100, specialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
+        super.init(vitalPoint: 100, attack: -10, specialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
     }
 }
 

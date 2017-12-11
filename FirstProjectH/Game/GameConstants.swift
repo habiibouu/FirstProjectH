@@ -20,8 +20,11 @@ class GameConstants {
     static var weaponList = [
         Weapon(pointAddAction: 10, typeAtk: true, name: "Escalibure"),
         Weapon(pointAddAction: 7, typeAtk: true, name: "Amulette du dragon"),
-        Weapon(pointAddAction: 5, typeAtk: true, name: "Glaive de la foie")
-                            ]
+        Weapon(pointAddAction: 5, typeAtk: true, name: "Glaive de la foie"),
+        Weapon(pointAddAction: 3, typeAtk: true, name: "Baton de puissance"),
+        Weapon(pointAddAction: 15, typeAtk: false, name: "Fiole magic"),
+        Weapon(pointAddAction: 8, typeAtk: false, name: "Armure de fer"),
+        Weapon(pointAddAction: 5, typeAtk: false, name: "Manteau de la foie")]
 }
 
 

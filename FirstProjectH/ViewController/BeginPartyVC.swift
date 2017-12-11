@@ -55,11 +55,14 @@ class BeginPartyVC: UIViewController {
     var selectedHeroForAction: Hero?
     var selectedAdversaireForAction: Hero?
     var senderNumber = 0
+    var oldWeapon = Weapon(pointAddAction: 0, typeAtk: true, name: " ")
+    var CorrectListWeapon = [Weapon]()
 
     
     @IBAction func selectHeroButtonPressed(_ sender: UIButton) {
        //on associe le sender.tag à une variable pour le récuperer après dans la fonction updateGameResult
         senderNumber = sender.tag
+        
         if actionTurn == .selectHero || actionTurn == .selectAction {
             if teamTurn == .redTurn {
                 selectedHeroForAction = GameConstants.redTeam.heros[sender.tag]
@@ -76,12 +79,26 @@ class BeginPartyVC: UIViewController {
         }
         
         if actionTurn == .selectHero {
+            if teamTurn == .redTurn {
+                pickRandomWeapon(heroAddPower: selectedHeroForAction!)
+            } else {
+                pickRandomWeapon(heroAddPower: selectedHeroForAction!)
+            }
+        }
+        
+        if actionTurn == .selectHero {
             actionTurn = .selectAction
         } else if actionTurn == .selectAdversaire {
             actionTurn = .displayAction
         }
+        
+      
         updateDisplayForTurn()
+       
+       
     }
+    
+    
         
     @IBAction func actionNormal() {
         actionTurn = .selectAdversaire
@@ -140,18 +157,75 @@ class BeginPartyVC: UIViewController {
         checkIfGameEnd()
     }
     
-    func pickRandomWeapon() {
-        let randomIndex = Int(arc4random_uniform(UInt32(GameConstants.weaponList.count)))
-        let myRandomWeapon = GameConstants.weaponList[randomIndex]
+    func pickRandomWeapon(heroAddPower: Hero) {
+        if heroAddPower.cptChest == 0 {
+            oldWeapon.pointAddAction = heroAddPower.weapon.pointAddAction
+            heroAddPower.cptChest += 3
+        //On filtre les objet dans la liste des armes pour pouvoir attribué la bonne arme au héro du type atk, heal, atk et heal
+        CorrectListWeapon = GameConstants.weaponList
+
+        if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false{
+            CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true}
+            
+        }
+        else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
+            CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == false}
+        }
+        else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true {
+            CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true && $0.typeAtk == false}
+        }
         
-        // implémenter cette fonction
-        // lance le coffre et augmenter les dégats d'un héro a la fin d'un tour (les deux équipes ont jouées)
+        // On fait la recherche aléatoire d'une arme dans le coffre filtré
+            let randomIndex = Int(arc4random_uniform(UInt32(CorrectListWeapon.count)))
+        CorrectListWeapon = GameConstants.weaponList
+        heroAddPower.weapon = CorrectListWeapon[randomIndex]
+            
+        // Selon L'arme nous allons augmenter l'action normal et l'action spé, ou que l'action normal ou que l'action spé selon l'attribut du hero et selon les atribut des arme. on supprime l'add de l'ancienne arme.
+        if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false {
+            heroAddPower.attack += oldWeapon.pointAddAction
+            heroAddPower.attack -= heroAddPower.weapon.pointAddAction
+            heroAddPower.specialCapacity += oldWeapon.pointAddAction
+            heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
+            }
+        else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
+            heroAddPower.attack -= oldWeapon.pointAddAction
+            heroAddPower.attack += heroAddPower.weapon.pointAddAction
+            heroAddPower.specialCapacity -= oldWeapon.pointAddAction
+            heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
+        }
+        else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true{
+            if heroAddPower.weapon.typeAtk == true {
+                if heroAddPower.typeActionNormalAtk == true {
+                    heroAddPower.attack += oldWeapon.pointAddAction
+                    heroAddPower.attack -= heroAddPower.weapon.pointAddAction
+                }
+                else if heroAddPower.typeActionSpeAtk == true {
+                    heroAddPower.specialCapacity += oldWeapon.pointAddAction
+                    heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
+                }
+            }
+            else if heroAddPower.weapon.typeAtk == false  {
+                    if heroAddPower.typeActionNormalAtk == false {
+                        heroAddPower.attack -= oldWeapon.pointAddAction
+                        heroAddPower.attack += heroAddPower.weapon.pointAddAction
+                    }
+                    else if heroAddPower.typeActionSpeAtk == false {
+                        heroAddPower.specialCapacity -= oldWeapon.pointAddAction
+                        heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
+                    }
+            }
+            }
+            
+            let alert = UIAlertController(title: "Coffre débloqué", message: "Vous obtenez une nouvelle arme: \(heroAddPower.weapon.name) +\(heroAddPower.weapon.pointAddAction) points action", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        heroAddPower.cptChest -= 1
+       
+        // penser à faire les modif pour utiliser les action heal sur les allié et non sur les ennemis
         // faire le unwind segue
         
-        // pour l'affichage du coffre, utiliser ce code pour le message :
-//        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-//        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
     }
     
     
