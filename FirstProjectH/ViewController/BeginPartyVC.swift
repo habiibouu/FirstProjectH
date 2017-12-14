@@ -12,7 +12,7 @@ class BeginPartyVC: UIViewController {
 
     //Ajouté une petite image qui se chargera automatiquement illustrant le type du perso un petit nain, un collos etc.. choisi.
     
-    //RED TEAM
+    //RED TEAM OUTLETS
     @IBOutlet weak var redTeamView: UIView!
     @IBOutlet weak var RedFirstHeroName: UILabel!
     @IBOutlet weak var RedFirstHeroPV: UILabel!
@@ -20,12 +20,12 @@ class BeginPartyVC: UIViewController {
     @IBOutlet weak var RedSecondHeroPV: UILabel!
     @IBOutlet weak var RedThirdHeroName: UILabel!
     @IBOutlet weak var RedThirdHeroPV: UILabel!
-    //button hero
+    //red heros Buttons
     @IBOutlet weak var redFirstHeroButton: UIButton!
     @IBOutlet weak var redSecondHeroButton: UIButton!
     @IBOutlet weak var redThirdHeroButton: UIButton!
     
-    //BLUE TEAM
+    //BLUE TEAM OUTLETS
     @IBOutlet weak var blueTeamView: UIView!
     @IBOutlet weak var blueFirstHeroName: UILabel!
     @IBOutlet weak var blueFirstHeroPV: UILabel!
@@ -33,16 +33,16 @@ class BeginPartyVC: UIViewController {
     @IBOutlet weak var blueSecondHeroPV: UILabel!
     @IBOutlet weak var blueThirdHeroName: UILabel!
     @IBOutlet weak var blueThirdHeroPV: UILabel!
-    //button hero
+    //blue heros buttons
     @IBOutlet weak var blueFirstHeroButton: UIButton!
     @IBOutlet weak var blueSecondHeroButton: UIButton!
     @IBOutlet weak var blueThirdHeroButton: UIButton!
-    
     
     //TOP LABELS
     @IBOutlet weak var turnTeam: UILabel!
     @IBOutlet weak var numberTurn: UILabel!
     @IBOutlet weak var OK: UIButton!
+    
     //ACTIONS
     @IBOutlet weak var actionDescription: UILabel!
     @IBOutlet weak var selectAction: UILabel!
@@ -50,18 +50,22 @@ class BeginPartyVC: UIViewController {
     @IBOutlet weak var specialAction: UIButton!
     
     var teamTurn: TeamTurn = .redTurn
-    var winner: Winner = .noOne
     var actionTurn: ActionTurn = .selectHero
-    var selectedHeroForAction: Hero?
-    var selectedAdversaireForAction: Hero?
-    var senderNumber = 0
-    //var oldWeapon = Weapon(pointAddAction: 0, typeAtk: true, name: " ")
-    var CorrectListWeapon = [Weapon]()
-
     
+    var selectedHeroForAction: Hero?
+    var selectedAttackType: Bool = true
+    var selectedAdversaireForAction: Hero?
+    var selectedHeroTag = 0
+    
+    //once I filtered the chest, I get the weapons allowed for a specific hero
+    var ChestWeaponsFiltered = [Weapon]()
+    
+    //for ending game
+    var winner: Winner = .noOne
+
     @IBAction func selectHeroButtonPressed(_ sender: UIButton) {
-       //on associe le sender.tag à une variable pour le récuperer après dans la fonction updateGameResult
-        senderNumber = sender.tag
+        // I need this tag to use it in updateGameResult
+        selectedHeroTag = sender.tag
         
         if actionTurn == .selectHero || actionTurn == .selectAction {
             if teamTurn == .redTurn {
@@ -70,8 +74,8 @@ class BeginPartyVC: UIViewController {
                 selectedHeroForAction = GameConstants.blueTeam.heros[sender.tag]
             }
         } else if actionTurn == .selectAdversaire {
-            //JE SUIS UN HEAL, JE SOIGNE MES ALLIES
-            if selectedHeroForAction?.typeHEAL == true {
+            //IF I'M AN HEALER, I HEAL MY ALLIES
+            if selectedAttackType == false {
                 if teamTurn == .redTurn {
                     selectedAdversaireForAction = GameConstants.redTeam.heros[sender.tag]
                 } else {
@@ -100,33 +104,32 @@ class BeginPartyVC: UIViewController {
             actionTurn = .displayAction
         }
         updateDisplayForTurn()
-       
     }
     
     @IBAction func actionNormal() {
         actionTurn = .selectAdversaire
-        updateDisplayForTurn()
-        
         //verifier au cas ou si le hero est bien sélectionné
         if selectedHeroForAction != nil {
             GameConstants.actionNow = selectedHeroForAction!.attack
+            selectedAttackType = selectedHeroForAction!.typeActionNormalAtk
         }
-        
-        
+        updateDisplayForTurn()
     }
     
     @IBAction func actionSpe() {
         actionTurn = .selectAdversaire
-        updateDisplayForTurn()
         //verifier au cas ou si le hero est bien sélectionné
         if selectedHeroForAction != nil {
+            selectedHeroForAction!.specialAttackCounter = 0
             GameConstants.actionNow = selectedHeroForAction!.specialCapacity
+            selectedAttackType = selectedHeroForAction!.typeActionSpeAtk
         }
-        
+        updateDisplayForTurn()
     }
     
     @IBAction func endTurn() {
-        updateGameResults()
+        updateHeros()
+        checkIfGameEnd()
         if actionTurn == .displayAction {
             if teamTurn == .redTurn {
                 teamTurn = .blueTurn
@@ -154,10 +157,12 @@ class BeginPartyVC: UIViewController {
     }
     
     
-    func updateGameResults() {
+    func updateHeros() {
         selectedAdversaireForAction!.vitalPoint += GameConstants.actionNow
-        updateHeroDeath(number: senderNumber)
-        checkIfGameEnd()
+        updateHeroDeath(number: selectedHeroTag)
+        if selectedHeroForAction != nil {
+            selectedHeroForAction!.specialAttackCounter += 1
+        }
     }
     
     func pickRandomWeapon(heroAddPower: Hero) {
@@ -166,33 +171,30 @@ class BeginPartyVC: UIViewController {
             //            oldWeapon.pointAddAction = heroAddPower.weapon.pointAddAction
             heroAddPower.cptChest += 3
             //On filtre les objet dans la liste des armes pour pouvoir attribué la bonne arme au héro du type atk, heal, atk et heal
-            CorrectListWeapon = GameConstants.weaponList
+            ChestWeaponsFiltered = GameConstants.weaponList
             
             if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false{
-                CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true}
+                ChestWeaponsFiltered = GameConstants.weaponList.filter {$0.typeAtk == true}
                 
             }
             else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
-                CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == false}
+                ChestWeaponsFiltered = GameConstants.weaponList.filter {$0.typeAtk == false}
             }
             else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true {
-                CorrectListWeapon = GameConstants.weaponList.filter {$0.typeAtk == true && $0.typeAtk == false}
+                ChestWeaponsFiltered = GameConstants.weaponList.filter {$0.typeAtk == true && $0.typeAtk == false}
             }
             
             // On fait la recherche aléatoire d'une arme dans le coffre filtré
-            let randomIndex = Int(arc4random_uniform(UInt32(CorrectListWeapon.count)))
-            CorrectListWeapon = GameConstants.weaponList
-            heroAddPower.weapon = CorrectListWeapon[randomIndex]
+            let randomIndex = Int(arc4random_uniform(UInt32(ChestWeaponsFiltered.count)))
+            ChestWeaponsFiltered = GameConstants.weaponList
+            heroAddPower.weapon = ChestWeaponsFiltered[randomIndex]
             
            
             let alert = UIAlertController(title: "Coffre débloqué", message: "Vous obtenez une nouvelle arme: \(heroAddPower.weapon.name) +\(heroAddPower.weapon.pointAddAction) points action", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
         heroAddPower.cptChest -= 1
-        
-        
     }
     
     
@@ -230,7 +232,7 @@ class BeginPartyVC: UIViewController {
             redTeamView.isHidden = false
             blueTeamView.isHidden = false
             // JE SUIS HEAL, JE SOIGNE MES ALIES
-            if selectedHeroForAction?.typeHEAL == true {
+            if selectedAttackType == false {
                 if teamTurn == .redTurn {
                     hide(hiddenView: blueTeamView, andDisplay: redTeamView)
                 } else {
@@ -249,7 +251,11 @@ class BeginPartyVC: UIViewController {
         if actionTurn == .selectAction {
             selectAction.isHidden = false
             normalAction.isHidden = false
-            specialAction.isHidden = false
+            if selectedHeroForAction != nil {
+                if selectedHeroForAction!.specialAttackCounter > 1 {
+                    specialAction.isHidden = false
+                }
+            }
         }
         
         //TURN = DISPLAY ACTION (RESULT)

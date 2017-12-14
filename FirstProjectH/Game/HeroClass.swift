@@ -1,8 +1,10 @@
 //Creation of class Hero
+import UIKit
 
 class Hero {
     var name: String = ""
     var vitalPoint: Int
+    
 //    var specialPoint: Int = 0//faire en sorte que à chaque tour d'action la capacité spécial augmente de 20 et arriver a 100 on peut activer la special capacity
     var baseAttack: Int
     var baseSpecialCapacity: Int
@@ -26,6 +28,7 @@ class Hero {
             return baseSpecialCapacity
         }
     }
+    var specialAttackCounter = 0
  
     var death : Bool = false
     var typeATK : Bool
