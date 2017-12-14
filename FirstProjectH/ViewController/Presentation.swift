@@ -2,6 +2,8 @@ import UIKit
 
 class Presentation: UIViewController {
     @IBAction func beginPary() {
+    //Action to create a two team and them hero for debbug fast
+        
         GameConstants.redTeam.name = "RED"
         GameConstants.blueTeam.name = "BlUE"
         
@@ -29,6 +31,8 @@ class Presentation: UIViewController {
         heroMagus2.name = "sorcier2"
         GameConstants.blueTeam.heros.append(heroMagus2)
     }
+    
+    @IBAction func unwindToPresentation(segue:UIStoryboardSegue) { }
 
     override func viewDidLoad() {
         super.viewDidLoad() 

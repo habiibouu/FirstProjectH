@@ -605,9 +605,34 @@ Capacité Spécial:</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voulez-vous recommencer?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpl-CV-nY6">
+                                <rect key="frame" x="80.5" y="469" width="214" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SQ-nN-Nve">
+                                <rect key="frame" x="172" y="536" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="OUI">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackToOneButtonTapped:" destination="AVh-Rq-Q9b" eventType="touchUpInside" id="d9j-52-ILe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1SQ-nN-Nve" firstAttribute="leading" secondItem="RHt-ye-4te" secondAttribute="leading" constant="172" id="1PW-gH-jmL"/>
+                            <constraint firstItem="RHt-ye-4te" firstAttribute="bottom" secondItem="1SQ-nN-Nve" secondAttribute="bottom" constant="101" id="6Ke-zc-hf8"/>
+                            <constraint firstItem="RHt-ye-4te" firstAttribute="trailing" secondItem="vpl-CV-nY6" secondAttribute="trailing" constant="80.5" id="7J5-hh-OBS"/>
+                            <constraint firstItem="RHt-ye-4te" firstAttribute="trailing" secondItem="1SQ-nN-Nve" secondAttribute="trailing" constant="173" id="NvD-b5-3Le"/>
+                            <constraint firstItem="vpl-CV-nY6" firstAttribute="centerX" secondItem="RHt-ye-4te" secondAttribute="centerX" id="OyW-eg-v7f"/>
+                            <constraint firstItem="vpl-CV-nY6" firstAttribute="leading" secondItem="RHt-ye-4te" secondAttribute="leading" constant="80.5" id="gcc-C4-Sez"/>
+                            <constraint firstItem="vpl-CV-nY6" firstAttribute="top" secondItem="UL1-h8-kcq" secondAttribute="bottom" constant="108" id="h6w-ZQ-C2F"/>
+                            <constraint firstItem="1SQ-nN-Nve" firstAttribute="top" secondItem="vpl-CV-nY6" secondAttribute="bottom" constant="46" id="kdQ-nX-pBd"/>
+                            <constraint firstItem="1SQ-nN-Nve" firstAttribute="top" secondItem="vpl-CV-nY6" secondAttribute="bottom" constant="46" id="sxE-ji-cmx"/>
                             <constraint firstItem="RHt-ye-4te" firstAttribute="trailing" secondItem="UL1-h8-kcq" secondAttribute="trailing" constant="20" id="t03-iG-gmQ"/>
                             <constraint firstItem="UL1-h8-kcq" firstAttribute="leading" secondItem="RHt-ye-4te" secondAttribute="leading" constant="20" id="tbY-Xj-5X9"/>
                             <constraint firstItem="UL1-h8-kcq" firstAttribute="centerY" secondItem="RHt-ye-4te" secondAttribute="centerY" id="uY4-xs-PZj"/>
@@ -616,9 +641,11 @@ Capacité Spécial:</string>
                     </view>
                     <connections>
                         <outlet property="endingMessage" destination="UL1-h8-kcq" id="VOq-6x-Uf1"/>
+                        <segue destination="HfP-A7-sPE" kind="unwind" identifier="unwindSegueToPresentation" unwindAction="unwindToPresentationWithSegue:" id="nCP-67-9mZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KeB-bZ-gJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HfP-A7-sPE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3293.5999999999999" y="-33.733133433283363"/>
         </scene>

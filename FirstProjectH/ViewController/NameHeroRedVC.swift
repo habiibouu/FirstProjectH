@@ -20,7 +20,7 @@ class NameHeroRedVC: UIViewController {
             let heroDwarf = Dwarf()
             heroDwarf.name = name
             self.heros.append(heroDwarf)
-            //demander si le joueur choisi plusieur Dwarf nous auron plusieurs variable heroDwarf est ce que cela possera un pb?
+            // /!\ demander si le joueur choisi plusieur Dwarf nous auron plusieurs variable heroDwarf est ce que cela posera un pb?
         }
         verificationNumbHero()
     }

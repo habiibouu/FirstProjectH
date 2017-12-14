@@ -3,8 +3,8 @@
 class Hero {
     var name: String = ""
     var vitalPoint: Int
-    var specialPoint: Int = 0//faire en sorte que à chaque tour d'action la capacité spécial augmente de 20 et arriver a 100 on peut activer la special capacity
-    var baseAttack: Int //On devrait l'appeler action car selon le hero l'action sera d'enlever ou d'ajouter des pv, la spécificité sera indiquer sur les carte hero
+//    var specialPoint: Int = 0//faire en sorte que à chaque tour d'action la capacité spécial augmente de 20 et arriver a 100 on peut activer la special capacity
+    var baseAttack: Int
     var baseSpecialCapacity: Int
     var attack: Int {
         get {
@@ -26,9 +26,7 @@ class Hero {
             return baseSpecialCapacity
         }
     }
-    //faire une fonction ou autre determinant ensuite si la capacité enleverra des point a l'adversaire ds le cas des combattant ou soignera les allié ds le cas du mage
-    //ou si elle peut paraliser un hero
-    //var canMove : Bool
+ 
     var death : Bool = false
     var typeATK : Bool
     var typeHEAL: Bool
@@ -52,14 +50,14 @@ class Hero {
 
 class Dwarf: Hero {
     init() {
-        super.init(vitalPoint: 50, baseAttack: -15, baseSpecialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
+        super.init(vitalPoint: 50, baseAttack: -200, baseSpecialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
         
     }
 }
 
 class Colossus: Hero {
     init() {
-        super.init(vitalPoint: 200, baseAttack: -10, baseSpecialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
+        super.init(vitalPoint: 200, baseAttack: -1000, baseSpecialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
         
     }
 }
@@ -73,7 +71,7 @@ class Magus: Hero {
 
 class Warrior: Hero {
     init() {
-        super.init(vitalPoint: 100, baseAttack: -10, baseSpecialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
+        super.init(vitalPoint: 100, baseAttack: -1000, baseSpecialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
     }
 }
 

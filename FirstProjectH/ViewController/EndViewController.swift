@@ -26,4 +26,14 @@ class EndViewController: UIViewController {
             endingMessage.text = "BRAVO À L'EQUIPE BLEUE !"
         }
     }
+    
+//    @IBAction func dismissVC(_ sender: Any) {
+//        dismiss(animated: true, completion: nil)
+//    }
+    
+    @IBAction func goBackToOneButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "unwindSegueToPresentation", sender: self)
+        GameConstants.redTeam.heros.removeAll()
+        GameConstants.blueTeam.heros.removeAll()
+    }
 }

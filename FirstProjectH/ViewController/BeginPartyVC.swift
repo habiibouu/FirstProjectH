@@ -184,44 +184,7 @@ class BeginPartyVC: UIViewController {
             CorrectListWeapon = GameConstants.weaponList
             heroAddPower.weapon = CorrectListWeapon[randomIndex]
             
-            // Selon L'arme nous allons augmenter l'action normal et l'action spé, ou que l'action normal ou que l'action spé selon l'attribut du hero et selon les atribut des arme. on supprime l'add de l'ancienne arme.
-            
-            
-            //            if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false {
-            //                heroAddPower.attack += oldWeapon.pointAddAction
-            //                heroAddPower.attack -= heroAddPower.weapon.pointAddAction
-            //                heroAddPower.specialCapacity += oldWeapon.pointAddAction
-            //                heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
-            //            }
-            //            else if heroAddPower.typeATK == false && heroAddPower.typeHEAL == true {
-            //                heroAddPower.attack -= oldWeapon.pointAddAction
-            //                heroAddPower.attack += heroAddPower.weapon.pointAddAction
-            //                heroAddPower.specialCapacity -= oldWeapon.pointAddAction
-            //                heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
-            //            }
-            //            else if heroAddPower.typeATK == true && heroAddPower.typeHEAL == true{
-            //                if heroAddPower.weapon.typeAtk == true {
-            //                    if heroAddPower.typeActionNormalAtk == true {
-            //                        heroAddPower.attack += oldWeapon.pointAddAction
-            //                        heroAddPower.attack -= heroAddPower.weapon.pointAddAction
-            //                    }
-            //                    else if heroAddPower.typeActionSpeAtk == true {
-            //                        heroAddPower.specialCapacity += oldWeapon.pointAddAction
-            //                        heroAddPower.specialCapacity -= heroAddPower.weapon.pointAddAction
-            //                    }
-            //                }
-            //                else if heroAddPower.weapon.typeAtk == false  {
-            //                    if heroAddPower.typeActionNormalAtk == false {
-            //                        heroAddPower.attack -= oldWeapon.pointAddAction
-            //                        heroAddPower.attack += heroAddPower.weapon.pointAddAction
-            //                    }
-            //                    else if heroAddPower.typeActionSpeAtk == false {
-            //                        heroAddPower.specialCapacity -= oldWeapon.pointAddAction
-            //                        heroAddPower.specialCapacity += heroAddPower.weapon.pointAddAction
-            //                    }
-            //                }
-            //            }
-            
+           
             let alert = UIAlertController(title: "Coffre débloqué", message: "Vous obtenez une nouvelle arme: \(heroAddPower.weapon.name) +\(heroAddPower.weapon.pointAddAction) points action", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -229,8 +192,6 @@ class BeginPartyVC: UIViewController {
         
         heroAddPower.cptChest -= 1
         
-        // penser à faire les modif pour utiliser les action heal sur les allié et non sur les ennemis
-        // faire le unwind segue
         
     }
     
@@ -396,31 +357,6 @@ class BeginPartyVC: UIViewController {
             winner = .redTeam
             performSegue(withIdentifier: "showEndGame", sender: self)
         }
-    
-//        var cpt = 0
-//        for nb in 0...2 {
-//            if GameConstants.redTeam.heros[nb].death == true {
-//                cpt += 1
-//                if cpt == 3 {
-//                    winner = .redTeam
-//                    self.performSegue(withIdentifier: "showEndGame", sender: self)
-//                }
-//            }
-//            else {
-//                cpt = 0
-//            }
-//
-//
-//            if GameConstants.blueTeam.heros[nb].death == true {
-//                cpt += 1
-//                if cpt == 3 {
-//                    winner = .blueTeam
-//                    self.performSegue(withIdentifier: "showEndGame", sender: self)
-//                }
-//            } else {
-//                cpt = 0
-//            }
-//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -17,6 +17,7 @@ class TeamRedNameVC: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func nameTeam() {
+        //We get the name team for two team and go to the next segue
         if turn == .redTurn {
             print(nameTextField.text!)
             GameConstants.redTeam.name = nameTextField.text!
@@ -28,6 +29,7 @@ class TeamRedNameVC: UIViewController {
         }
     }
     
+    //this function change the label for the next team
     func changeTurn() {
         nameTextField.text = ""
         turn = .blueTurn
