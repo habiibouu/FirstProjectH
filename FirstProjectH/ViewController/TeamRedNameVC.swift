@@ -24,7 +24,7 @@ class TeamRedNameVC: UIViewController {
             changeTurn()
         } else {
             GameConstants.blueTeam.name = nameTextField.text!
-            //passer au prochain tour
+            //go next turn
             self.performSegue(withIdentifier: "showHerosSelection", sender: self)
         }
     }

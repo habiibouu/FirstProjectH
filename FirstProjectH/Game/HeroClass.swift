@@ -4,27 +4,24 @@ import UIKit
 class Hero {
     var name: String = ""
     var vitalPoint: Int
-    
-//    var specialPoint: Int = 0//faire en sorte que à chaque tour d'action la capacité spécial augmente de 20 et arriver a 100 on peut activer la special capacity
     var baseAttack: Int
     var baseSpecialCapacity: Int
     var attack: Int {
         get {
-            // identique à == true
+            // same as == true
             if weapon.typeAtk {
                 return baseAttack + weapon.pointAddAction
             }
-            // pas besoin de else car on sort de la fonction avant
+            // no need else because we get out before
             return baseAttack
         }
     }
     var specialCapacity: Int {
         get {
-            // identique à == false
+            // same as == false
             if !(weapon.typeAtk) {
                 return baseSpecialCapacity + weapon.pointAddAction
             }
-            // pas besoin de else car on sort de la fonction avant
             return baseSpecialCapacity
         }
     }
@@ -37,10 +34,11 @@ class Hero {
     
     var typeActionNormalAtk : Bool
     var typeActionSpeAtk : Bool
-    
+    var image: UIImageView
     var cptWeapon = 0
     var weapon = Weapon(pointAddAction: 0, typeAtk: true, name: "")
-    init(vitalPoint: Int, baseAttack: Int, baseSpecialCapacity: Int, typeATK: Bool, typeHEAL: Bool, typeActionNormalAtk: Bool, typeActionSpeAtk: Bool){
+    init(image: UIImageView ,vitalPoint: Int, baseAttack: Int, baseSpecialCapacity: Int, typeATK: Bool, typeHEAL: Bool, typeActionNormalAtk: Bool, typeActionSpeAtk: Bool){
+        self.image = image
         self.vitalPoint = vitalPoint
         self.baseAttack = baseAttack
         self.baseSpecialCapacity = baseSpecialCapacity
@@ -53,28 +51,28 @@ class Hero {
 
 class Dwarf: Hero {
     init() {
-        super.init(vitalPoint: 50, baseAttack: -200, baseSpecialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
+        super.init(image: GameConstants.imageDwarf,vitalPoint: 50, baseAttack: -200, baseSpecialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
         
     }
 }
 
 class Colossus: Hero {
     init() {
-        super.init(vitalPoint: 200, baseAttack: -1000, baseSpecialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
+        super.init(image: GameConstants.imageColossus ,vitalPoint: 200, baseAttack: -1000, baseSpecialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
         
     }
 }
 
 class Magus: Hero {
     init() {
-        super.init(vitalPoint: 150, baseAttack: +20, baseSpecialCapacity: +40, typeATK: false, typeHEAL: true, typeActionNormalAtk: false, typeActionSpeAtk: false)
+        super.init(image: GameConstants.imageMagus ,vitalPoint: 150, baseAttack: +20, baseSpecialCapacity: +40, typeATK: false, typeHEAL: true, typeActionNormalAtk: false, typeActionSpeAtk: false)
         
     }
 }
 
 class Warrior: Hero {
     init() {
-        super.init(vitalPoint: 100, baseAttack: -1000, baseSpecialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
+        super.init(image: GameConstants.imageWarrior ,vitalPoint: 100, baseAttack: -1000, baseSpecialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
     }
 }
 

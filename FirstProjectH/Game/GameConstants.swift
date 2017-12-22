@@ -5,16 +5,21 @@
 //  Created by Habib Bouriche on 05/11/2017.
 //  Copyright © 2017 Habib Bouriche. All rights reserved.
 //
-
+import UIKit
 import Foundation
 
 class GameConstants {
+    static var imageDwarf = UIImageView(image: #imageLiteral(resourceName: "dwarf"))
+    static var imageColossus = UIImageView(image: #imageLiteral(resourceName: "colossus"))
+    static var imageWarrior = UIImageView(image: #imageLiteral(resourceName: "warrior"))
+    static var imageMagus = UIImageView(image: #imageLiteral(resourceName: "magus"))
+    
     static var redTeam = Team(heros: [], color: .red)
     static var blueTeam = Team(heros: [], color: .blue)
     static var numberTurn = 0
     //not used
 //    static var heroChoice =  Hero(vitalPoint: 0, attack: 0, specialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
-    static var heroTarget = Hero(vitalPoint: 0, baseAttack: 0, baseSpecialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
+    static var heroTarget = Hero(image: GameConstants.imageDwarf,vitalPoint: 0, baseAttack: 0, baseSpecialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
     static var actionNow = 0
     
     static var weaponList = [

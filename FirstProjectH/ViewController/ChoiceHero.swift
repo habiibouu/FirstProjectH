@@ -9,6 +9,11 @@
 import UIKit
 
 class NameHeroRedVC: UIViewController {
+    @IBOutlet weak var dwarfI: UIImageView!
+    @IBOutlet weak var colossusI: UIImageView!
+    @IBOutlet weak var warriorI: UIImageView!
+    @IBOutlet weak var magusI: UIImageView!
+    
     
     @IBOutlet weak var heroChoice: UILabel!
     var heros = [Hero]()
@@ -20,7 +25,7 @@ class NameHeroRedVC: UIViewController {
             let heroDwarf = Dwarf()
             heroDwarf.name = name
             self.heros.append(heroDwarf)
-            // /!\ demander si le joueur choisi plusieur Dwarf nous auron plusieurs variable heroDwarf est ce que cela posera un pb?
+            // /!\Ask if a gamer choice many dwarf, what go in now if we have many var herodwarf, is't probleme? (demander si le joueur choisi plusieur Dwarf nous auron plusieurs variable heroDwarf est ce que cela posera un pb?)
         }
         verificationNumbHero()
     }
@@ -97,6 +102,20 @@ class NameHeroRedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Image heros
+        dwarfI = GameConstants.imageDwarf
+        dwarfI.frame = CGRect(x: 56, y: 175, width: 75, height: 48)
+        view.addSubview(dwarfI)
+        colossusI = GameConstants.imageColossus
+        colossusI.frame = CGRect(x: 250, y: 175, width: 75, height: 48)
+        view.addSubview(colossusI)
+        magusI = GameConstants.imageMagus
+        magusI.frame = CGRect(x: 250, y: 389, width: 75, height: 50)
+        view.addSubview(magusI)
+        warriorI = GameConstants.imageWarrior
+        warriorI.frame = CGRect(x: 56, y: 389, width: 75, height: 50)
+        view.addSubview(warriorI)
+        
         heroChoice.text = "L'équipe Rouge selectionnez vos 3 Héros"
         heroChoice.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.

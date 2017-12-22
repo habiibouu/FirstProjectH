@@ -10,7 +10,14 @@ import UIKit
 
 class BeginPartyVC: UIViewController {
 
-    //Ajouté une petite image qui se chargera automatiquement illustrant le type du perso un petit nain, un collos etc.. choisi.
+   
+    //Image outlet
+    @IBOutlet weak var redPerso1: UIImageView!
+    @IBOutlet weak var redPerso2: UIImageView!
+    @IBOutlet weak var redPerso3: UIImageView!
+    @IBOutlet weak var bluePerso1: UIImageView!
+    @IBOutlet weak var bluePerso2: UIImageView!
+    @IBOutlet weak var bluePerso3: UIImageView!
     
     //RED TEAM OUTLETS
     @IBOutlet weak var redTeamView: UIView!
@@ -49,31 +56,31 @@ class BeginPartyVC: UIViewController {
     @IBOutlet weak var normalAction: UIButton!
     @IBOutlet weak var specialAction: UIButton!
     
+    //Data use
     var teamTurn: TeamTurn = .redTurn
     var actionTurn: ActionTurn = .selectHero
-    
     var selectedHeroForAction: Hero?
     var selectedAttackType: Bool = true
     var selectedAdversaireForAction: Hero?
     var selectedHeroTag = 0
-    
-    //once I filtered the chest, I get the weapons allowed for a specific hero
+    //(once I filtered the chest, I get the weapons allowed for a specific hero)
     var ChestWeaponsFiltered = [Weapon]()
-    
-    //for ending game
+    //(for ending game)
     var winner: Winner = .noOne
 
     @IBAction func selectHeroButtonPressed(_ sender: UIButton) {
         // I need this tag to use it in updateGameResult
         selectedHeroTag = sender.tag
         
+        //::Choice your hero and action
         if actionTurn == .selectHero || actionTurn == .selectAction {
             if teamTurn == .redTurn {
                 selectedHeroForAction = GameConstants.redTeam.heros[sender.tag]
             } else {
                 selectedHeroForAction = GameConstants.blueTeam.heros[sender.tag]
             }
-        } else if actionTurn == .selectAdversaire {
+        }//::Choice hero target
+            else if actionTurn == .selectAdversaire {
             //IF I'M AN HEALER, I HEAL MY ALLIES
             if selectedAttackType == false {
                 if teamTurn == .redTurn {
@@ -90,6 +97,7 @@ class BeginPartyVC: UIViewController {
             }
         }
         
+        //::Add weapon
         if actionTurn == .selectHero {
             if teamTurn == .redTurn {
                 pickRandomWeapon(heroAddPower: selectedHeroForAction!)
@@ -98,6 +106,7 @@ class BeginPartyVC: UIViewController {
             }
         }
         
+        //::Change step
         if actionTurn == .selectHero {
             actionTurn = .selectAction
         } else if actionTurn == .selectAdversaire {
@@ -108,7 +117,7 @@ class BeginPartyVC: UIViewController {
     
     @IBAction func actionNormal() {
         actionTurn = .selectAdversaire
-        //verifier au cas ou si le hero est bien sélectionné
+        //check if the hero is selected
         if selectedHeroForAction != nil {
             GameConstants.actionNow = selectedHeroForAction!.attack
             selectedAttackType = selectedHeroForAction!.typeActionNormalAtk
@@ -143,6 +152,27 @@ class BeginPartyVC: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Data to image hero. Look if we can change that in better and thinking to hide them image in a good time
+        redPerso1 = GameConstants.redTeam.heros[0].image
+        redPerso1.frame = CGRect(x: 76, y: 60, width: 39, height: 35)
+        view.addSubview(redPerso1)
+        redPerso2 = GameConstants.redTeam.heros[1].image
+        redPerso2.frame = CGRect(x: 76, y: 150, width: 39, height: 35)
+        view.addSubview(redPerso2)
+        redPerso3 = GameConstants.redTeam.heros[2].image
+        redPerso3.frame = CGRect(x: 76, y: 225, width: 39, height: 35)
+        view.addSubview(redPerso3)
+        bluePerso1 = GameConstants.blueTeam.heros[0].image
+        bluePerso1.frame = CGRect(x: 263, y: 60, width: 39, height: 35)
+        view.addSubview(bluePerso1)
+        bluePerso2 = GameConstants.blueTeam.heros[1].image
+        bluePerso2.frame = CGRect(x: 263, y: 150, width: 39, height: 35)
+        view.addSubview(bluePerso2)
+        bluePerso3 = GameConstants.blueTeam.heros[2].image
+        bluePerso3.frame = CGRect(x: 263, y: 225, width: 39, height: 35)
+        view.addSubview(bluePerso3)
+
+
         initUI()
         updateDisplayForTurn()
     }
@@ -168,9 +198,8 @@ class BeginPartyVC: UIViewController {
     func pickRandomWeapon(heroAddPower: Hero) {
         
         if heroAddPower.cptChest == 0 {
-            //            oldWeapon.pointAddAction = heroAddPower.weapon.pointAddAction
             heroAddPower.cptChest += 3
-            //On filtre les objet dans la liste des armes pour pouvoir attribué la bonne arme au héro du type atk, heal, atk et heal
+            //::Filter they weapon in the weapon list for take a just add attribution to the hero if his tye is atk, heal, or atk and heal
             ChestWeaponsFiltered = GameConstants.weaponList
             
             if heroAddPower.typeATK == true && heroAddPower.typeHEAL == false{
@@ -184,12 +213,12 @@ class BeginPartyVC: UIViewController {
                 ChestWeaponsFiltered = GameConstants.weaponList.filter {$0.typeAtk == true && $0.typeAtk == false}
             }
             
-            // On fait la recherche aléatoire d'une arme dans le coffre filtré
+            //::Researche a random weapon in the filter chest
             let randomIndex = Int(arc4random_uniform(UInt32(ChestWeaponsFiltered.count)))
             ChestWeaponsFiltered = GameConstants.weaponList
             heroAddPower.weapon = ChestWeaponsFiltered[randomIndex]
             
-           
+            //::Display the new weapon to the hero
             let alert = UIAlertController(title: "Coffre débloqué", message: "Vous obtenez une nouvelle arme: \(heroAddPower.weapon.name) +\(heroAddPower.weapon.pointAddAction) points action", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -202,36 +231,38 @@ class BeginPartyVC: UIViewController {
         
         hideEverything()
         
-        // TURN = SELECT HERO
+        //::TURN = SELECT HERO
         if actionTurn == .selectHero {
             initUI()
             redTeamView.isHidden = false
             blueTeamView.isHidden = false
             
             if teamTurn == .redTurn {
-                //mise à jour nombre de tour
+                //update number turn as we start with red team
                 GameConstants.numberTurn += 1
                 numberTurn.text = "TOUR \(GameConstants.numberTurn)"
-                hide(hiddenView: blueTeamView, andDisplay: redTeamView)
                 
-                //mets à jour le texte
+                //update texte  turn
                 turnTeam.text = "C'est au tour de \(GameConstants.redTeam.name)"
                 turnTeam.textColor = UIColor.red
+                
+                hide(hiddenView: blueTeamView, andDisplay: redTeamView)
                 
             } else {
                 hide(hiddenView: redTeamView, andDisplay: blueTeamView)
                 
-                //mets à jour le texte
+                //update text turn
                 turnTeam.text = "C'est au tour de \(GameConstants.blueTeam.name)"
                 turnTeam.textColor = UIColor.blue
             }
         }
         
-        //TURN = SELECT ADVERSAIRE
+        //::TURN = SELECT ADVERSAIRE
         if actionTurn == .selectAdversaire {
             redTeamView.isHidden = false
             blueTeamView.isHidden = false
-            // JE SUIS HEAL, JE SOIGNE MES ALIES
+            
+            // I'm healer
             if selectedAttackType == false {
                 if teamTurn == .redTurn {
                     hide(hiddenView: blueTeamView, andDisplay: redTeamView)
@@ -262,7 +293,7 @@ class BeginPartyVC: UIViewController {
         if actionTurn == .displayAction {
             OK.isHidden = false
             actionDescription.isHidden = false
-            actionDescription.text = "\(selectedHeroForAction!.name) à effectuer l'action \(GameConstants.actionNow) pv sur \(selectedAdversaireForAction!.name) " //faire une condition permettant de dire si l'attaque à infliger ou à soigner
+            actionDescription.text = "\(selectedHeroForAction!.name) à effectuer l'action \(GameConstants.actionNow) pv sur \(selectedAdversaireForAction!.name) "
         }
         
         if selectedHeroForAction != nil {
@@ -300,6 +331,7 @@ class BeginPartyVC: UIViewController {
         blueThirdHeroName.text = "\(GameConstants.blueTeam.heros[2].name)"
         blueThirdHeroPV.text = "\(GameConstants.blueTeam.heros[2].vitalPoint) PV"
         
+        //for ajust display in label
         normalAction.titleLabel!.lineBreakMode = .byWordWrapping
         normalAction.titleLabel!.numberOfLines = 2
         normalAction.titleLabel!.textAlignment = .center
@@ -312,6 +344,7 @@ class BeginPartyVC: UIViewController {
     
     func updateHeroDeath(number: Int) {
         
+        //::Check RED Team
         if GameConstants.redTeam.heros[number].vitalPoint <= 0 {
             GameConstants.redTeam.heros[number].vitalPoint = 0
             GameConstants.redTeam.heros[number].death = true
@@ -329,6 +362,7 @@ class BeginPartyVC: UIViewController {
             }
         }
         
+        //::Check BLUE Team
         if GameConstants.blueTeam.heros[number].vitalPoint <= 0{
             GameConstants.blueTeam.heros[number].vitalPoint = 0
             GameConstants.blueTeam.heros[number].death = true
@@ -349,17 +383,17 @@ class BeginPartyVC: UIViewController {
     }
     
     func checkIfGameEnd() {
-        
+        //::RED Team Check
+        //Filter heros in life
         let redHeros = GameConstants.redTeam.heros.filter {$0.vitalPoint > 0}
+        //Test all death hero
         if redHeros.count == 0 {
-            //je n'ai plus de héros avec des vies dans l'équipe rouge
             winner = .blueTeam
             performSegue(withIdentifier: "showEndGame", sender: self)
         }
-        
+        //::BLUE Team Check
         let blueHeros = GameConstants.blueTeam.heros.filter {$0.vitalPoint > 0}
         if blueHeros.count == 0 {
-            //je n'ai plus de héros avec des vies dans l'équipe bleue
             winner = .redTeam
             performSegue(withIdentifier: "showEndGame", sender: self)
         }

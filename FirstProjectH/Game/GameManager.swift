@@ -3,7 +3,7 @@
 class Weapon {
     var pointAddAction: Int
     var name : String
-    var typeAtk : Bool //type de l'arme étant une arme d'attaque par défaultsi true si non arme de soin
+    var typeAtk : Bool // if it's fals it's type heal
     init(pointAddAction: Int, typeAtk: Bool, name: String){
         self.pointAddAction = pointAddAction
         self.typeAtk = typeAtk
