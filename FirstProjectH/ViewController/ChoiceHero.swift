@@ -9,6 +9,7 @@
 import UIKit
 
 class NameHeroRedVC: UIViewController {
+    
     @IBOutlet weak var dwarfI: UIImageView!
     @IBOutlet weak var colossusI: UIImageView!
     @IBOutlet weak var warriorI: UIImageView!
@@ -103,18 +104,25 @@ class NameHeroRedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Image heros
-        dwarfI = GameConstants.imageDwarf
-        dwarfI.frame = CGRect(x: 56, y: 175, width: 75, height: 48)
-        view.addSubview(dwarfI)
-        colossusI = GameConstants.imageColossus
-        colossusI.frame = CGRect(x: 250, y: 175, width: 75, height: 48)
-        view.addSubview(colossusI)
-        magusI = GameConstants.imageMagus
-        magusI.frame = CGRect(x: 250, y: 389, width: 75, height: 50)
-        view.addSubview(magusI)
-        warriorI = GameConstants.imageWarrior
-        warriorI.frame = CGRect(x: 56, y: 389, width: 75, height: 50)
-        view.addSubview(warriorI)
+        dwarfI.image = GameConstants.imageDwarf
+        colossusI.image = GameConstants.imageColossus
+        magusI.image = GameConstants.imageMagus
+        warriorI.image = GameConstants.imageWarrior
+        
+        
+//
+//        dwarfI = GameConstants.imageDwarf
+//        dwarfI.frame = CGRect(x: 56, y: 175, width: 75, height: 48)
+//        view.addSubview(dwarfI)
+//        colossusI = GameConstants.imageColossus
+//        colossusI.frame = CGRect(x: 250, y: 175, width: 75, height: 48)
+//        view.addSubview(colossusI)
+//        magusI = GameConstants.imageMagus
+//        magusI.frame = CGRect(x: 250, y: 389, width: 75, height: 50)
+//        view.addSubview(magusI)
+//        warriorI = GameConstants.imageWarrior
+//        warriorI.frame = CGRect(x: 56, y: 389, width: 75, height: 50)
+//        view.addSubview(warriorI)
         
         heroChoice.text = "L'équipe Rouge selectionnez vos 3 Héros"
         heroChoice.backgroundColor = UIColor.red

@@ -153,25 +153,32 @@ class BeginPartyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Data to image hero. Look if we can change that in better and thinking to hide them image in a good time
-        redPerso1 = GameConstants.redTeam.heros[0].image
-        redPerso1.frame = CGRect(x: 76, y: 60, width: 39, height: 35)
-        view.addSubview(redPerso1)
-        redPerso2 = GameConstants.redTeam.heros[1].image
-        redPerso2.frame = CGRect(x: 76, y: 150, width: 39, height: 35)
-        view.addSubview(redPerso2)
-        redPerso3 = GameConstants.redTeam.heros[2].image
-        redPerso3.frame = CGRect(x: 76, y: 225, width: 39, height: 35)
-        view.addSubview(redPerso3)
-        bluePerso1 = GameConstants.blueTeam.heros[0].image
-        bluePerso1.frame = CGRect(x: 263, y: 60, width: 39, height: 35)
-        view.addSubview(bluePerso1)
-        bluePerso2 = GameConstants.blueTeam.heros[1].image
-        bluePerso2.frame = CGRect(x: 263, y: 150, width: 39, height: 35)
-        view.addSubview(bluePerso2)
-        bluePerso3 = GameConstants.blueTeam.heros[2].image
-        bluePerso3.frame = CGRect(x: 263, y: 225, width: 39, height: 35)
-        view.addSubview(bluePerso3)
+        
+        redPerso1.image = GameConstants.redTeam.heros[0].image
+        redPerso2.image = GameConstants.redTeam.heros[1].image
+        redPerso3.image = GameConstants.redTeam.heros[2].image
+        bluePerso1.image = GameConstants.blueTeam.heros[0].image
+        bluePerso2.image = GameConstants.blueTeam.heros[1].image
+        bluePerso3.image = GameConstants.blueTeam.heros[2].image
 
+//        redPerso1 = GameConstants.redTeam.heros[0].image
+//        redPerso1.frame = CGRect(x: 76, y: 60, width: 39, height: 35)
+//        view.addSubview(redPerso1)
+//        redPerso2 = GameConstants.redTeam.heros[1].image
+//        redPerso2.frame = CGRect(x: 76, y: 150, width: 39, height: 35)
+//        view.addSubview(redPerso2)
+//        redPerso3 = GameConstants.redTeam.heros[2].image
+//        redPerso3.frame = CGRect(x: 76, y: 225, width: 39, height: 35)
+//        view.addSubview(redPerso3)
+//        bluePerso1 = GameConstants.blueTeam.heros[0].image
+//        bluePerso1.frame = CGRect(x: 263, y: 60, width: 39, height: 35)
+//        view.addSubview(bluePerso1)
+//        bluePerso2 = GameConstants.blueTeam.heros[1].image
+//        bluePerso2.frame = CGRect(x: 263, y: 150, width: 39, height: 35)
+//        view.addSubview(bluePerso2)
+//        bluePerso3 = GameConstants.blueTeam.heros[2].image
+//        bluePerso3.frame = CGRect(x: 263, y: 225, width: 39, height: 35)
+//        view.addSubview(bluePerso3)
 
         initUI()
         updateDisplayForTurn()

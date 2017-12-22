@@ -34,10 +34,10 @@ class Hero {
     
     var typeActionNormalAtk : Bool
     var typeActionSpeAtk : Bool
-    var image: UIImageView
+    var image: UIImage?
     var cptWeapon = 0
     var weapon = Weapon(pointAddAction: 0, typeAtk: true, name: "")
-    init(image: UIImageView ,vitalPoint: Int, baseAttack: Int, baseSpecialCapacity: Int, typeATK: Bool, typeHEAL: Bool, typeActionNormalAtk: Bool, typeActionSpeAtk: Bool){
+    init(image: UIImage? ,vitalPoint: Int, baseAttack: Int, baseSpecialCapacity: Int, typeATK: Bool, typeHEAL: Bool, typeActionNormalAtk: Bool, typeActionSpeAtk: Bool){
         self.image = image
         self.vitalPoint = vitalPoint
         self.baseAttack = baseAttack

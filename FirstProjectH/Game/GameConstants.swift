@@ -9,10 +9,10 @@ import UIKit
 import Foundation
 
 class GameConstants {
-    static var imageDwarf = UIImageView(image: #imageLiteral(resourceName: "dwarf"))
-    static var imageColossus = UIImageView(image: #imageLiteral(resourceName: "colossus"))
-    static var imageWarrior = UIImageView(image: #imageLiteral(resourceName: "warrior"))
-    static var imageMagus = UIImageView(image: #imageLiteral(resourceName: "magus"))
+    static var imageDwarf = UIImage(named: "dwarf")
+    static var imageColossus = UIImage(named: "colossus")
+    static var imageWarrior = UIImage(named: "warrior")
+    static var imageMagus = UIImage(named: "magus")
     
     static var redTeam = Team(heros: [], color: .red)
     static var blueTeam = Team(heros: [], color: .blue)
