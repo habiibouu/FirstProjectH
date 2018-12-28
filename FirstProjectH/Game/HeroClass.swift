@@ -9,7 +9,10 @@ class Hero {
     var attack: Int {
         get {
             // same as == true
-            if weapon.typeAtk {
+            if !(weapon.typeAtk) && typeActionNormalAtk == false {
+                return baseAttack + weapon.pointAddAction
+            }
+            if (weapon.typeAtk) && typeActionNormalAtk == true {
                 return baseAttack + weapon.pointAddAction
             }
             // no need else because we get out before
@@ -19,8 +22,11 @@ class Hero {
     var specialCapacity: Int {
         get {
             // same as == false
-            if !(weapon.typeAtk) {
+            if !(weapon.typeAtk) && typeActionSpeAtk == false {
                 return baseSpecialCapacity + weapon.pointAddAction
+            }
+            if (weapon.typeAtk) && typeActionSpeAtk == true {
+               return baseSpecialCapacity + weapon.pointAddAction
             }
             return baseSpecialCapacity
         }
@@ -51,14 +57,14 @@ class Hero {
 
 class Dwarf: Hero {
     init() {
-        super.init(image: GameConstants.imageDwarf,vitalPoint: 50, baseAttack: -200, baseSpecialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
+        super.init(image: GameConstants.imageDwarf,vitalPoint: 50, baseAttack: -15, baseSpecialCapacity: +15, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: false )
         
     }
 }
 
 class Colossus: Hero {
     init() {
-        super.init(image: GameConstants.imageColossus ,vitalPoint: 200, baseAttack: -1000, baseSpecialCapacity: -5, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
+        super.init(image: GameConstants.imageColossus ,vitalPoint: 200, baseAttack: -5, baseSpecialCapacity: -10, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true )
         
     }
 }
@@ -72,7 +78,7 @@ class Magus: Hero {
 
 class Warrior: Hero {
     init() {
-        super.init(image: GameConstants.imageWarrior ,vitalPoint: 100, baseAttack: -1000, baseSpecialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
+        super.init(image: GameConstants.imageWarrior ,vitalPoint: 100, baseAttack: -10, baseSpecialCapacity: -30, typeATK: true, typeHEAL: false, typeActionNormalAtk: true, typeActionSpeAtk: true)
     }
 }
 

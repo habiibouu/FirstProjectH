@@ -88,6 +88,7 @@ class BeginPartyVC: UIViewController {
                 } else {
                     selectedAdversaireForAction = GameConstants.blueTeam.heros[sender.tag]
                 }
+            //if i'm an attack type, attack my ennemies
             } else {
                 if teamTurn == .redTurn {
                     selectedAdversaireForAction = GameConstants.blueTeam.heros[sender.tag]
@@ -127,7 +128,7 @@ class BeginPartyVC: UIViewController {
     
     @IBAction func actionSpe() {
         actionTurn = .selectAdversaire
-        //verifier au cas ou si le hero est bien sélectionné
+        //check if the hero is well selected
         if selectedHeroForAction != nil {
             selectedHeroForAction!.specialAttackCounter = 0
             GameConstants.actionNow = selectedHeroForAction!.specialCapacity
@@ -152,7 +153,6 @@ class BeginPartyVC: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Data to image hero. Look if we can change that in better and thinking to hide them image in a good time
         
         redPerso1.image = GameConstants.redTeam.heros[0].image
         redPerso2.image = GameConstants.redTeam.heros[1].image
@@ -160,25 +160,6 @@ class BeginPartyVC: UIViewController {
         bluePerso1.image = GameConstants.blueTeam.heros[0].image
         bluePerso2.image = GameConstants.blueTeam.heros[1].image
         bluePerso3.image = GameConstants.blueTeam.heros[2].image
-
-//        redPerso1 = GameConstants.redTeam.heros[0].image
-//        redPerso1.frame = CGRect(x: 76, y: 60, width: 39, height: 35)
-//        view.addSubview(redPerso1)
-//        redPerso2 = GameConstants.redTeam.heros[1].image
-//        redPerso2.frame = CGRect(x: 76, y: 150, width: 39, height: 35)
-//        view.addSubview(redPerso2)
-//        redPerso3 = GameConstants.redTeam.heros[2].image
-//        redPerso3.frame = CGRect(x: 76, y: 225, width: 39, height: 35)
-//        view.addSubview(redPerso3)
-//        bluePerso1 = GameConstants.blueTeam.heros[0].image
-//        bluePerso1.frame = CGRect(x: 263, y: 60, width: 39, height: 35)
-//        view.addSubview(bluePerso1)
-//        bluePerso2 = GameConstants.blueTeam.heros[1].image
-//        bluePerso2.frame = CGRect(x: 263, y: 150, width: 39, height: 35)
-//        view.addSubview(bluePerso2)
-//        bluePerso3 = GameConstants.blueTeam.heros[2].image
-//        bluePerso3.frame = CGRect(x: 263, y: 225, width: 39, height: 35)
-//        view.addSubview(bluePerso3)
 
         initUI()
         updateDisplayForTurn()
@@ -226,7 +207,7 @@ class BeginPartyVC: UIViewController {
             heroAddPower.weapon = ChestWeaponsFiltered[randomIndex]
             
             //::Display the new weapon to the hero
-            let alert = UIAlertController(title: "Coffre débloqué", message: "Vous obtenez une nouvelle arme: \(heroAddPower.weapon.name) +\(heroAddPower.weapon.pointAddAction) points action", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Coffre débloqué", message: "Vous obtenez une nouvelle arme: \(heroAddPower.weapon.name) \(heroAddPower.weapon.pointAddAction) points action", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -269,13 +250,14 @@ class BeginPartyVC: UIViewController {
             redTeamView.isHidden = false
             blueTeamView.isHidden = false
             
-            // I'm healer
+            // I'm an healer
             if selectedAttackType == false {
                 if teamTurn == .redTurn {
                     hide(hiddenView: blueTeamView, andDisplay: redTeamView)
                 } else {
                     hide(hiddenView: redTeamView, andDisplay: blueTeamView)
                 }
+            //I'm an attaker
             } else {
                 if teamTurn == .redTurn {
                     hide(hiddenView: redTeamView, andDisplay: blueTeamView)
@@ -414,9 +396,6 @@ class BeginPartyVC: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
 }
 

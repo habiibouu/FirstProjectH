@@ -17,9 +17,8 @@ class GameConstants {
     static var redTeam = Team(heros: [], color: .red)
     static var blueTeam = Team(heros: [], color: .blue)
     static var numberTurn = 0
-    //not used
-//    static var heroChoice =  Hero(vitalPoint: 0, attack: 0, specialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
-    static var heroTarget = Hero(image: GameConstants.imageDwarf,vitalPoint: 0, baseAttack: 0, baseSpecialCapacity: 0, typeATK: true, typeHEAL: true, typeActionNormalAtk: true, typeActionSpeAtk: true)
+
+    
     static var actionNow = 0
     
     static var weaponList = [
